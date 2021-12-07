@@ -27,9 +27,13 @@ describe('Creating a User', function () {
 
   it('should throw an error on invalid email addresses', function (done) {
     User.create({
-      email: 'test',
-      name: 'Brian',
-      password: 'password'
+      email: 'test@test.co',
+      firstName: 'Muttbuncher',
+      lastName: 'Smith',
+      initials: 'MBS',
+      phoneNumber: '2068675309',
+      password: 'password',
+      userLevel: 1,
     }).then(function (newUser) {
       done(newUser);
     }).catch(function (error) {
@@ -40,8 +44,12 @@ describe('Creating a User', function () {
   it('should throw an error on invalid name', function (done) {
     User.create({
       email: 'test@test.co',
-      name: '',
-      password: 'password'
+      firstName: 'Muttbuncher',
+      lastName: 'Smith',
+      initials: 'MBS',
+      phoneNumber: '2068675309',
+      password: 'password',
+      userLevel: 1,
     }).then(function (newUser) {
       done(newUser);
     }).catch(function (error) {
@@ -52,8 +60,12 @@ describe('Creating a User', function () {
   it('should throw an error on invalid password', function (done) {
     User.create({
       email: 'test@test.co',
-      name: 'Brian',
-      password: 'short'
+      firstName: 'Muttbuncher',
+      lastName: 'Smith',
+      initials: 'MBS',
+      phoneNumber: '2068675309',
+      password: 'password',
+      userLevel: 1,
     }).then(function (newUser) {
       done(newUser);
     }).catch(function (error) {
@@ -64,8 +76,12 @@ describe('Creating a User', function () {
   it('should hash the password before save', function (done) {
     User.create({
       email: 'test@test.co',
-      name: 'Muttbuncher',
-      password: 'password'
+      firstName: 'Muttbuncher',
+      lastName: 'Smith',
+      initials: 'MBS',
+      phoneNumber: '2068675309',
+      password: 'password',
+      userLevel: 1,
     }).then(function (newUser) {
       if (newUser.password === 'password') {
         done(newUser);
