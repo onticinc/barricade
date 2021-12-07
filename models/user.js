@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    lastName: {
+    initials: {
       type: DataTypes.STRING,
       validate: {
         len: {
@@ -42,6 +42,17 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Initals must be 3 characters'
         }
       }
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      validate: {
+        isPhone: {
+          msg: 'Invalid email'
+        }
+      }
+    },
+    userLevel: {
+      type: DataTypes.INTEGER,
     },
     email: {
       type: DataTypes.STRING,
@@ -68,18 +79,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    phoneNumber: {
-      type: DataTypes.STRING,
-      validate: {
-        isPhone: {
-          msg: 'Invalid email'
-        }
-      }
-    },
-    userLevel: {
-      type: DataTypes.INTEGER,
-    },
-
   }, {
     sequelize,
     modelName: 'User',
