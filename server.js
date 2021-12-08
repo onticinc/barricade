@@ -6,8 +6,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
-const session = require("express-session");
-const flash = require("connect-flash");
+
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
@@ -25,8 +24,6 @@ app.use(session({
 }));
 
 app.use(flash()); // flash middleware
-
-
 
 app.use(flash());
 
