@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { merch } = require('../models');
+const { Merch } = require('../models');
 
 /**
  * ============================
- * merch controller
+ * Merch Controller
  * ============================
 */
 
-// merch route
+// Merch route
 router.get('/', (req, res) => {
-    // get all merchs
-    merch.findAll()
+    // get all merch
+    Merch.findAll()
         .then((merchList) => {
             console.log('FOUND ALL MERCH', merchList);
             // res.json({ merch: merchList });
@@ -28,9 +28,9 @@ router.get('/new', (req, res) => {
 });
 
 // GET to Edit page
-router.get('/edit/:id', (req, res) => {
+router.get('/merch/:id', (req, res) => {
     let merchIndex = Number(req.params.id);
-    merch.findByPk(merchIndex)
+    Merch.findByPk(merchIndex)
         .then((merch) => {
             if (merch) {
                 merch = merch.toJSON();
@@ -51,11 +51,11 @@ router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
     let merchIndex = Number(req.params.id);
     console.log('IS THIS A NUMBER?', merchIndex);
-    merch.findByPk(merchIndex)
+    Merch.findByPk(merchIndex)
         .then((merch) => {
             if (merch) {
                 merch = merch.toJSON();
-                console.log('IS THIS A merch?', merch);
+                console.log('IS THIS A MERCH?', merch);
                 res.render('merch/show', { merch });
             } else {
                 console.log('This merch does not exist');
@@ -74,23 +74,23 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
-    merch.create({
+    Merch.create({
         name: req.body.name,
         type: req.body.type,
         description: req.body.description,
         price: Number(req.body.price),
         picture: req.body.picture,
         notes: req.body.notes,
-        inStock: Number(req.body, inStock),
+        inStock: Number(req.body.abv),
     })
         .then((newMerch) => {
-            console.log('NEW merch', newMerch.toJSON());
+            console.log('NEW MERCH', newMerch.toJSON());
             newMerch = newMerch.toJSON();
-            res.redirect(`/merchs/${newMerch.id}`);
+            res.redirect(`/merch/${newMerch.id}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'merch was not added please try again...' });
+            res.render('404', { message: 'Merch was not added please try again...' });
         });
     // res.redirect()
 });
@@ -101,21 +101,18 @@ router.put('/:id', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
     let merchIndex = Number(req.params.id);
-    merch.update({
+    Merch.update({
         name: req.body.name,
         type: req.body.type,
-        brewery: req.body.type,
-        pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGlass),
-        costPerKeg: Number(req.body.costPerKeg),
-        abv: Number(req.body.abv),
-        ibu: Number(req.body.ibu),
+        description: req.body.description,
+        price: Number(req.body.pricePerGlass),
+        picture: req.body.picture,
         notes: req.body.notes,
-        inStock: Number(req.body, inStock),
+        inStock: Number(req.body.abv),
     }, { where: { id: merchIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
-            res.redirect(`/merchs/${merchIndex}`);
+            res.redirect(`/merch/${merchIndex}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
@@ -129,14 +126,14 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     console.log('ID HERE', req.params.id);
     let merchIndex = Number(req.params.id);
-    merch.destroy({ where: { id: merchIndex } })
+    Merch.destroy({ where: { id: merchIndex } })
         .then((response) => {
-            console.log('merch DELETED', response);
-            res.redirect('/merchs');
+            console.log('Merch DELETED', response);
+            res.redirect('/merch');
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'merch was not deleted, please try again...' });
+            res.render('404', { message: 'Merch was not deleted, please try again...' });
         })
 });
 

@@ -79,7 +79,7 @@ router.post('/', (req, res) => {
         type: req.body.type,
         brewery: req.body.type,
         pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGlass),
+        pricePerGrowler: Number(req.body.pricePerGrowler),
         costPerKeg: Number(req.body.costPerKeg),
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
@@ -109,11 +109,12 @@ router.put('/:id', (req, res) => {
         type: req.body.type,
         brewery: req.body.type,
         pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGlass),
+        pricePerGrowler: Number(req.body.pricePerGrowler),
         costPerKeg: Number(req.body.costPerKeg),
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
+        inStock: Number(req.body, inStock),
     }, { where: { id: beerIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

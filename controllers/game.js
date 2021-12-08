@@ -13,12 +13,12 @@ router.get('/', (req, res) => {
     // get all games
     Game.findAll()
         .then((gameList) => {
-            console.log('FOUND ALL Games', gameList);
+            //console.log('FOUND ALL GAMES', gameList);
             // res.json({ game: gameList });
             res.render('game/index', { games: gameList })
         })
         .catch((err) => {
-            console.log('ERROR', err);
+            //console.log('ERROR', err);
             res.json({ message: 'Error occured, please try again....' });
         });
 });
@@ -36,7 +36,7 @@ router.get('/edit/:id', (req, res) => {
                 game = game.toJSON();
                 res.render('games/edit', { game });
             } else {
-                console.log('This game does not exist');
+                //console.log('This game does not exist');
                 // render a 404 page
                 res.render('404', { message: 'Game does not exist' });
             }
@@ -83,8 +83,9 @@ router.post('/', (req, res) => {
         picture: req.body.picture,
         highScore: Number(req.body.highScore),
         userId: Number(req.body.userId),
-        inStock: Number(req.body, inStock),
+        working: Number(req.body.working),
     })
+
         .then((newGame) => {
             console.log('NEW GAME', newGame.toJSON());
             newGame = newGame.toJSON();
@@ -113,7 +114,7 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
-        inStock: Number(req.body, inStock),
+        working: Number(req.body.working),
     }, { where: { id: gameIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

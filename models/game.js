@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     notes: DataTypes.TEXT,
     picture: DataTypes.STRING,
     highScore: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    working: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Game',
