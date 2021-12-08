@@ -1,0 +1,15 @@
+<form method="POST" action="/foods/<%= album.id %>/?_method=PUT">
+  <label for="title">Food Name:</label>
+  <input type="text" name="name" value="<%= food.name %>" />
+
+  <label for="">Length</label>
+  <input id="length" type="text" name="length" value="<%= album.length %>" />
+
+  <label for="tracks">Tracks</label>
+  <input id="tracks" type="text" name="tracks" value="<%= album.tracks %>" />
+
+  <label for="year">Year</label>
+  <input id="year" type="text" name="year" value="<%= album.year %>" />
+
+  <input type="submit" />
+</form>
