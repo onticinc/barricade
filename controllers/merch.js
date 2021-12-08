@@ -81,6 +81,7 @@ router.post('/', (req, res) => {
         price: Number(req.body.price),
         picture: req.body.picture,
         notes: req.body.notes,
+        inStock: Number(req.body, inStock),
     })
         .then((newMerch) => {
             console.log('NEW merch', newMerch.toJSON());
@@ -110,6 +111,7 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
+        inStock: Number(req.body, inStock),
     }, { where: { id: merchIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

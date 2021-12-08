@@ -83,6 +83,7 @@ router.post('/', (req, res) => {
         picture: req.body.picture,
         highScore: Number(req.body.highScore),
         userId: Number(req.body.userId),
+        inStock: Number(req.body, inStock),
     })
         .then((newevent) => {
             console.log('NEW event', newevent.toJSON());
@@ -112,6 +113,7 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
+        inStock: Number(req.body, inStock),
     }, { where: { id: eventIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

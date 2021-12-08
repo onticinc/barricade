@@ -84,6 +84,7 @@ router.post('/', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
+        inStock: Number(req.body.notes),
     })
         .then((newBeer) => {
             console.log('NEW BEER', newBeer.toJSON());
