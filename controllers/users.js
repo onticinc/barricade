@@ -108,7 +108,7 @@ router.put('/:id', (req, res) => {
         phoneNumber: req.body.phoneNumber,
         userLevel: Number(req.body.picture),
         email: req.body.email,
-        password: req.body.password,,
+        password: req.body.password,
     }, { where: { id: userIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
