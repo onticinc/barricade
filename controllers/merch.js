@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { Game } = require('../models');
+const { merch } = require('../models');
 
 /**
  * ============================
- * Game Controller
+ * merch controller
  * ============================
 */
 
-// Game route
+// merch route
 router.get('/', (req, res) => {
-    // get all games
-    Game.findAll()
-        .then((gameList) => {
-            console.log('FOUND ALL Games', gameList);
-            // res.json({ game: gameList });
-            res.render('game/index', { games: gameList })
+    // get all merchs
+    merch.findAll()
+        .then((merchList) => {
+            console.log('FOUND ALL MERCH', merchList);
+            // res.json({ merch: merchList });
+            res.render('merch/index', { merchs: merchList })
         })
         .catch((err) => {
             console.log('ERROR', err);
@@ -24,21 +24,21 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.render('games/new');
+    res.render('merch/new');
 });
 
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
-    let gameIndex = Number(req.params.id);
-    Game.findByPk(gameIndex)
-        .then((game) => {
-            if (game) {
-                game = game.toJSON();
-                res.render('games/edit', { game });
+    let merchIndex = Number(req.params.id);
+    merch.findByPk(merchIndex)
+        .then((merch) => {
+            if (merch) {
+                merch = merch.toJSON();
+                res.render('merch/edit', { merch });
             } else {
-                console.log('This game does not exist');
+                console.log('This merch does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Game does not exist' });
+                res.render('404', { message: 'merch does not exist' });
             }
         })
         .catch((error) => {
@@ -49,18 +49,18 @@ router.get('/edit/:id', (req, res) => {
 
 router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
-    let gameIndex = Number(req.params.id);
-    console.log('IS THIS A NUMBER?', gameIndex);
-    Game.findByPk(gameIndex)
-        .then((game) => {
-            if (game) {
-                game = game.toJSON();
-                console.log('IS THIS A GAME?', game);
-                res.render('games/show', { game });
+    let merchIndex = Number(req.params.id);
+    console.log('IS THIS A NUMBER?', merchIndex);
+    merch.findByPk(merchIndex)
+        .then((merch) => {
+            if (merch) {
+                merch = merch.toJSON();
+                console.log('IS THIS A merch?', merch);
+                res.render('merchs/show', { merch });
             } else {
-                console.log('This game does not exist');
+                console.log('This merch does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Game does not exist' });
+                res.render('404', { message: 'merch does not exist' });
             }
         })
         .catch((error) => {
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
-    Game.create({
+    merch.create({
         name: req.body.name,
         model: req.body.model,
         manufacturer: req.body.manufacturer,
@@ -84,14 +84,14 @@ router.post('/', (req, res) => {
         highScore: Number(req.body.highScore),
         userId: Number(req.body.userId),
     })
-        .then((newGame) => {
-            console.log('NEW GAME', newGame.toJSON());
-            newGame = newGame.toJSON();
-            res.redirect(`/games/${newGame.id}`);
+        .then((newMerch) => {
+            console.log('NEW merch', newMerch.toJSON());
+            newMerch = newMerch.toJSON();
+            res.redirect(`/merchs/${newMerch.id}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Game was not added please try again...' });
+            res.render('404', { message: 'merch was not added please try again...' });
         });
     // res.redirect()
 });
@@ -101,8 +101,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let gameIndex = Number(req.params.id);
-    Game.update({
+    let merchIndex = Number(req.params.id);
+    merch.update({
         name: req.body.name,
         type: req.body.type,
         brewery: req.body.type,
@@ -112,10 +112,10 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
-    }, { where: { id: gameIndex } })
+    }, { where: { id: merchIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
-            res.redirect(`/games/${gameIndex}`);
+            res.redirect(`/merchs/${merchIndex}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
@@ -128,15 +128,15 @@ router.put('/:id', (req, res) => {
  * */
 router.delete('/:id', (req, res) => {
     console.log('ID HERE', req.params.id);
-    let gameIndex = Number(req.params.id);
-    Game.destroy({ where: { id: gameIndex } })
+    let merchIndex = Number(req.params.id);
+    merch.destroy({ where: { id: merchIndex } })
         .then((response) => {
-            console.log('GAME DELETED', response);
-            res.redirect('/games');
+            console.log('merch DELETED', response);
+            res.redirect('/merchs');
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Game was not deleted, please try again...' });
+            res.render('404', { message: 'merch was not deleted, please try again...' });
         })
 });
 

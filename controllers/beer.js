@@ -34,7 +34,7 @@ router.get('/edit/:id', (req, res) => {
         .then((beer) => {
             if (beer) {
                 beer = beer.toJSON();
-                res.render('beers/edit', { album });
+                res.render('beers/edit', { beer });
             } else {
                 console.log('This Beer does not exist');
                 // render a 404 page
@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
         costPerKeg: Number(req.body.costPerKeg),
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
-        notes: Number(req.body.notes),
+        notes: req.body.notes,
     })
         .then((newBeer) => {
             console.log('NEW BEER', newBeer.toJSON());
@@ -112,7 +112,7 @@ router.put('/:id', (req, res) => {
         costPerKeg: Number(req.body.costPerKeg),
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
-        notes: Number(req.body.notes),
+        notes: req.body.notes,
     }, { where: { id: beerIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

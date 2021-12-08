@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { Game } = require('../models');
+const { event } = require('../models');
 
 /**
  * ============================
- * Game Controller
+ * event Controller
  * ============================
 */
 
-// Game route
+// event route
 router.get('/', (req, res) => {
-    // get all games
-    Game.findAll()
-        .then((gameList) => {
-            console.log('FOUND ALL Games', gameList);
-            // res.json({ game: gameList });
-            res.render('game/index', { games: gameList })
+    // get all events
+    event.findAll()
+        .then((eventList) => {
+            console.log('FOUND ALL events', eventList);
+            // res.json({ event: eventList });
+            res.render('event/index', { events: eventList })
         })
         .catch((err) => {
             console.log('ERROR', err);
@@ -24,21 +24,21 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.render('games/new');
+    res.render('events/new');
 });
 
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
-    let gameIndex = Number(req.params.id);
-    Game.findByPk(gameIndex)
-        .then((game) => {
-            if (game) {
-                game = game.toJSON();
-                res.render('games/edit', { game });
+    let eventIndex = Number(req.params.id);
+    event.findByPk(eventIndex)
+        .then((event) => {
+            if (event) {
+                event = event.toJSON();
+                res.render('events/edit', { event });
             } else {
-                console.log('This game does not exist');
+                console.log('This event does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Game does not exist' });
+                res.render('404', { message: 'event does not exist' });
             }
         })
         .catch((error) => {
@@ -49,18 +49,18 @@ router.get('/edit/:id', (req, res) => {
 
 router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
-    let gameIndex = Number(req.params.id);
-    console.log('IS THIS A NUMBER?', gameIndex);
-    Game.findByPk(gameIndex)
-        .then((game) => {
-            if (game) {
-                game = game.toJSON();
-                console.log('IS THIS A GAME?', game);
-                res.render('games/show', { game });
+    let eventIndex = Number(req.params.id);
+    console.log('IS THIS A NUMBER?', eventIndex);
+    event.findByPk(eventIndex)
+        .then((event) => {
+            if (event) {
+                event = event.toJSON();
+                console.log('IS THIS A event?', event);
+                res.render('events/show', { event });
             } else {
-                console.log('This game does not exist');
+                console.log('This event does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Game does not exist' });
+                res.render('404', { message: 'event does not exist' });
             }
         })
         .catch((error) => {
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
-    Game.create({
+    event.create({
         name: req.body.name,
         model: req.body.model,
         manufacturer: req.body.manufacturer,
@@ -84,14 +84,14 @@ router.post('/', (req, res) => {
         highScore: Number(req.body.highScore),
         userId: Number(req.body.userId),
     })
-        .then((newGame) => {
-            console.log('NEW GAME', newGame.toJSON());
-            newGame = newGame.toJSON();
-            res.redirect(`/games/${newGame.id}`);
+        .then((newevent) => {
+            console.log('NEW event', newevent.toJSON());
+            newevent = newevent.toJSON();
+            res.redirect(`/events/${newevent.id}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Game was not added please try again...' });
+            res.render('404', { message: 'event was not added please try again...' });
         });
     // res.redirect()
 });
@@ -101,8 +101,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let gameIndex = Number(req.params.id);
-    Game.update({
+    let eventIndex = Number(req.params.id);
+    event.update({
         name: req.body.name,
         type: req.body.type,
         brewery: req.body.type,
@@ -112,10 +112,10 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
-    }, { where: { id: gameIndex } })
+    }, { where: { id: eventIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
-            res.redirect(`/games/${gameIndex}`);
+            res.redirect(`/events/${eventIndex}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
@@ -128,15 +128,15 @@ router.put('/:id', (req, res) => {
  * */
 router.delete('/:id', (req, res) => {
     console.log('ID HERE', req.params.id);
-    let gameIndex = Number(req.params.id);
-    Game.destroy({ where: { id: gameIndex } })
+    let eventIndex = Number(req.params.id);
+    event.destroy({ where: { id: eventIndex } })
         .then((response) => {
-            console.log('GAME DELETED', response);
-            res.redirect('/games');
+            console.log('event DELETED', response);
+            res.redirect('/events');
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Game was not deleted, please try again...' });
+            res.render('404', { message: 'event was not deleted, please try again...' });
         })
 });
 
