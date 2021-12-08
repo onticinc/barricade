@@ -1,15 +1,21 @@
-<form method="POST" action="/albums">
-  <label for="title">Title</label>
-  <input type="text" name="title" />
+<form method="POST" action="/beers">
+  <label for="name">Beer Name:</label>
+  <input id="beerName" type="text" name="name" />
 
-  <label for="length">Length</label>
-  <input id="length" type="text" name="length" />
+  <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
+  <input id="typeOfBeer" type="text" name="type" />
 
-  <label for="tracks">Tracks</label>
-  <input id="tracks" type="text" name="tracks" />
+  <label for="brewery">Brewery Name:</label>
+  <input id="brewery" type="text" name="brewery" />
 
-  <label for="year">Year</label>
-  <input id="year" type="text" name="year" />
-
+  <label for="pricePerGlass">Price Per Glass:</label>
+  <input id="pricePerGlass" type="number" name="pricePerGlass" />
+  <label for="pricePerGrowler">Price Per Growler:</label>
+  <input id="pricePerGrowler" type="number" name="pricePerGrowler" />
+  <input id="costPerKeg" type="number" name="pricePerGrowler" />
+  <input id="beerAbv" type="number" name="abv" />
+  <input id="beerIbu" type="number" name="ibu" />
+  <input id="beerNotes" type="text" name="notes" />
+  <input id="beerInStock" type="radial" name="notes" />
   <input type="submit" />
 </form>
