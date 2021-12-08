@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Albums</title>
+  </head>
+  <body>
+    <% for( let index = 0; index < albums.length; index++ ) { %> <% let a =
+    albums[index]; %> <% a = a.toJSON() %>
+    <p><%= a.title %></p>
+    <a href="/albums/<%= a.id %>">View Album</a>
+    <hr />
+    <% } %>
+  </body>
+</html>
