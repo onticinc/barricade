@@ -8,25 +8,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      gameName: {
+      name: {
         type: Sequelize.STRING
       },
-      gameModule: {
+      model: {
         type: Sequelize.STRING
       },
-      gameManufacture: {
+      manufacturer: {
         type: Sequelize.STRING
       },
-      gameSerialNumber: {
+      serialNumber: {
         type: Sequelize.STRING
       },
-      gameNotes: {
+      notes: {
         type: Sequelize.TEXT
       },
-      gamePicture: {
+      picture: {
         type: Sequelize.STRING
       },
-      gameHighScore: {
+      highScore: {
+        type: Sequelize.INTEGER
+      },
+      userId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

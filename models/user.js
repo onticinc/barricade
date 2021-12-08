@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      models.User.hasMany(models.Game, { foreignKey: 'gameId' });
       // define association here
     }
   };
@@ -45,22 +46,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     phoneNumber: {
       type: DataTypes.STRING,
-      validate: {
-        isPhone: {
-          msg: 'Invalid email'
-        }
-      }
     },
     userLevel: {
       type: DataTypes.INTEGER,
-    },
-    email: {
-      type: DataTypes.STRING,
-      validate: {
-        isEmail: {
-          msg: 'Invalid email'
-        }
-      }
     },
     email: {
       type: DataTypes.STRING,
