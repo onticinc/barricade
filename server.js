@@ -49,6 +49,13 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 // controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/beers', require('./controllers/beer'));
+app.use('/events', require('./controllers/event'));
+app.use('/users', require('./controllers/user'));
+app.use('/food', require('./controllers/food'));
+app.use('/games', require('./controllers/game'));
+app.use('/merch', require('./controllers/merch'));
+
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
