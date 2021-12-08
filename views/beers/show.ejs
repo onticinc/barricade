@@ -7,7 +7,7 @@
     <title>Beers on Tap</title>
   </head>
   <body>
-    <a href="/beers">View All Albums</a>
+    <a href="/beers">View All Beers</a>
     <h1><%= beer.name %></h1>
     <h2><%= beer.type %></h2>
     <h3><%= beer.brewery %></h3>
@@ -22,7 +22,7 @@
     <a href="/beers/edit/<%= beer.id %>">Edit</a>
 
     <form method="POST" action="/beers/<%= delete.id %>/?_method=DELETE">
-      <input type="submit" value="Delete Album" />
+      <input type="submit" value="Delete Beer" />
     </form>
   </body>
 </html>
