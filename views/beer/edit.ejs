@@ -1,15 +1,41 @@
-<form method="POST" action="/albums/<%= album.id %>/?_method=PUT">
-  <label for="title">Title</label>
-  <input type="text" name="title" value="<%= album.title %>" />
+<form method="POST" action="/beers/<%= album.id %>/?_method=PUT">
+  <label for="name">Beer Name:</label>
+  <input id="beerName" type="text" name="name" value="<%= beer.name %>" />
 
-  <label for="length">Length</label>
-  <input id="length" type="text" name="length" value="<%= album.length %>" />
+  <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
+  <input id="typeOfBeer" type="text" name="type" value="<%= beer.type %>" />
 
-  <label for="tracks">Tracks</label>
-  <input id="tracks" type="text" name="tracks" value="<%= album.tracks %>" />
+  <label for="brewery">Brewery Name:</label>
+  <input id="brewery" type="text" name="brewery" value="<%= beer.brewery %>" />
 
-  <label for="year">Year</label>
-  <input id="year" type="text" name="year" value="<%= album.year %>" />
-
+  <label for="pricePerGlass">Price Per Glass:</label>
+  <input
+    id="pricePerGlass"
+    type="number"
+    name="pricePerGlass"
+    value="<%= beer.pricePerGlass %>"
+  />
+  <label for="pricePerGrowler">Price Per Growler:</label>
+  <input
+    id="pricePerGrowler"
+    type="number"
+    name="pricePerGrowler"
+    value="<%= beer.pricePerGrowler %>"
+  />
+  <input
+    id="costPerKeg"
+    type="number"
+    name="pricePerGrowler"
+    value="<%= beer.pricePerGrowler %>"
+  />
+  <input id="beerAbv" type="number" name="abv" value="<%= beer.abv %>" />
+  <input id="beerIbu" type="number" name="ibu" value="<%= beer.ibu %>" />
+  <input id="beerNotes" type="text" name="notes" value="<%= beer.notes %>" />
+  <input
+    id="beerInStock"
+    type="radial"
+    name="notes"
+    value="<%= beer.inStock %>"
+  />
   <input type="submit" />
 </form>
