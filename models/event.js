@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.FLOAT,
     picture: DataTypes.STRING,
     date: DataTypes.DATE,
-    time: DataTypes.STRING
+    time: DataTypes.STRING,
+    inStock: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Event',

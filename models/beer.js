@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     costPerKeg: DataTypes.INTEGER,
     abv: DataTypes.INTEGER,
     ibu: DataTypes.INTEGER,
-    notes: DataTypes.TEXT
+    notes: DataTypes.TEXT,
+    inStock: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Beer',

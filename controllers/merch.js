@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then((merchList) => {
             console.log('FOUND ALL MERCH', merchList);
             // res.json({ merch: merchList });
-            res.render('merch/index', { merchs: merchList })
+            res.render('merch/index', { merch: merchList })
         })
         .catch((err) => {
             console.log('ERROR', err);
@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
             if (merch) {
                 merch = merch.toJSON();
                 console.log('IS THIS A merch?', merch);
-                res.render('merchs/show', { merch });
+                res.render('merch/show', { merch });
             } else {
                 console.log('This merch does not exist');
                 // render a 404 page
@@ -76,13 +76,11 @@ router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
     merch.create({
         name: req.body.name,
-        model: req.body.model,
-        manufacturer: req.body.manufacturer,
-        serialNumber: req.body.serialNumber,
-        notes: req.body.pricePerGlass,
+        type: req.body.type,
+        description: req.body.description,
+        price: Number(req.body.price),
         picture: req.body.picture,
-        highScore: Number(req.body.highScore),
-        userId: Number(req.body.userId),
+        notes: req.body.notes,
     })
         .then((newMerch) => {
             console.log('NEW merch', newMerch.toJSON());
