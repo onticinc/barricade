@@ -25,13 +25,12 @@ describe('Creating a User', function () {
 
   it('should throw an error on invalid email addresses', function (done) {
     User.create({
-      email: 'test@test.co',
+      email: 'test@test.com',
       firstName: 'Muttbuncher',
       lastName: 'Smith',
       initials: 'MBS',
-      phoneNumber: '2068675309',
       password: 'password',
-      userLevel: 1,
+
     }).then(function (newUser) {
       done(newUser);
     }).catch(function (error) {
