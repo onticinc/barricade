@@ -53,22 +53,30 @@ Express authentication template using Passport + Flash messages + custom middlew
 | Column Name | Data Type | Notes                              |
 | ----------- | --------- | ---------------------------------- |
 | id          | Integer   | Serial Primary Key, Auto-generated |
-| name        | String    | Must be provided                   |
+| firstName   | String    | Must be provided                   |
+| lastName    | String    | Must be Provided                   |
+| initials    | String    | Must be Provided / used for score  |
+| phoneNumber | String    |                                    |
+| userLevel   | Integer   | Set by Admin / Owner               |
 | email       | String    | Must be unique / used for login    |
 | password    | String    | Stored as a hash                   |
 | createdAt   | Date      | Auto-generated                     |
 | updatedAt   | Date      | Auto-generated                     |
 
-###
+### Game Model
 
-| Column Name | Data Type | Notes                              |
-| ----------- | --------- | ---------------------------------- |
-| id          | Integer   | Serial Primary Key, Auto-generated |
-| name        | String    | Must be provided                   |
-| email       | String    | Must be unique / used for login    |
-| password    | String    | Stored as a hash                   |
-| createdAt   | Date      | Auto-generated                     |
-| updatedAt   | Date      | Auto-generated                     |
+| Column Name  | Data Type | Notes                              |
+| ------------ | --------- | ---------------------------------- |
+| id           | Integer   | Serial Primary Key, Auto-generated |
+| name         | String    | Must be provided                   |
+| model        | String    |                                    |
+| manufacturer | String    |                                    |
+| serialNumber | String    |                                    |
+| notes        | String    |                                    |
+| picture      | String    |                                    |
+| highScore    | String    |                                    |
+| createdAt    | Date      | Auto-generated                     |
+| updatedAt    | Date      | Auto-generated                     |
 
 ### Default Routes
 
