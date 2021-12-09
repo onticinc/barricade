@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { event } = require('../models');
+const { Event } = require('../models');
 
 /**
  * ============================
@@ -11,11 +11,11 @@ const { event } = require('../models');
 // event route
 router.get('/', (req, res) => {
     // get all events
-    event.findAll()
+    Event.findAll()
         .then((eventList) => {
             console.log('FOUND ALL events', eventList);
             // res.json({ event: eventList });
-            res.render('event/index', { events: eventList })
+            res.render('events/index', { events: eventList })
         })
         .catch((err) => {
             console.log('ERROR', err);

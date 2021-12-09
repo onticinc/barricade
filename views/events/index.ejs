@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Beers</title>
+    <title>All Events</title>
   </head>
   <body>
-    <% for( let index = 0; index < beers.length; index++ ) { %> <% let a =
-    beers[index]; %> <% a = a.toJSON() %>
-    <p><%= a.title %></p>
-    <a href="/beers/<%= a.id %>">View Beers</a>
+    <% for( let index = 0; index < events.length; index++ ) { %> <% let a =
+    events[index]; %> <% a = a.toJSON() %>
+    <p><%= a.name %></p>
+    <a href="/events/<%= a.id %>">View Beers</a>
     <hr />
     <% } %>
   </body>
