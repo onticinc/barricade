@@ -9,7 +9,7 @@
   <body>
     <% for( let index = 0; index < beers.length; index++ ) { %> <% let b =
     beers[index]; %> <% b = b.toJSON() %>
-    <p><%= b.title %></p>
+    <p><%= b.name %></p>
     <a href="/beers/<%= b.id %>">View Beer</a>
     <hr />
     <% } %>

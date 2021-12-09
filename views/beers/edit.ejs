@@ -1,4 +1,4 @@
-<form method="POST" action="/beers/<%= album.id %>/?_method=PUT">
+<form method="POST" action="/beers/<%= beer.id %>/?_method=PUT">
   <label for="name">Beer Name:</label>
   <input id="beerName" type="text" name="name" value="<%= beer.name %>" />
 
@@ -33,7 +33,7 @@
   <input id="beerNotes" type="text" name="notes" value="<%= beer.notes %>" />
   <input
     id="beerInStock"
-    type="radial"
+    type="text"
     name="notes"
     value="<%= beer.inStock %>"
   />
