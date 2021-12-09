@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const upload = multer({ dest: '../uploads' })
 const { Event } = require('../models');
-
 
 /**
  * ============================
@@ -77,16 +76,15 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
-    event.create({
+    Event.create({
         name: req.body.name,
-        model: req.body.model,
-        manufacturer: req.body.manufacturer,
-        serialNumber: req.body.serialNumber,
-        notes: req.body.pricePerGlass,
+        description: req.body.description,
+        link: req.body.link,
+        cost: req.body.cost,
         picture: req.body.picture,
-        highScore: Number(req.body.highScore),
-        userId: Number(req.body.userId),
-        inStock: Number(req.body, inStock),
+        date: req.body.date,
+        time: req.body.time,
+        notes: req.body.notes,
     })
         .then((newevent) => {
             console.log('NEW event', newevent.toJSON());
@@ -103,20 +101,18 @@ router.post('/', (req, res) => {
  * EDIT
  * */
 router.put('/:id', (req, res) => {
-    console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
-    console.log('HERE IS THE ID', req.params.id);
+    //console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
+    //console.log('HERE IS THE ID', req.params.id);
     let eventIndex = Number(req.params.id);
-    event.update({
+    Event.update({
         name: req.body.name,
-        type: req.body.type,
-        brewery: req.body.type,
-        pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGlass),
-        costPerKeg: Number(req.body.costPerKeg),
-        abv: Number(req.body.abv),
-        ibu: Number(req.body.ibu),
+        description: req.body.description,
+        link: req.body.link,
+        cost: req.body.cost,
+        picture: req.body.picture,
+        date: req.body.date,
+        time: req.body.time,
         notes: req.body.notes,
-        inStock: Number(req.body, inStock),
     }, { where: { id: eventIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
@@ -134,7 +130,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     console.log('ID HERE', req.params.id);
     let eventIndex = Number(req.params.id);
-    event.destroy({ where: { id: eventIndex } })
+    Event.destroy({ where: { id: eventIndex } })
         .then((response) => {
             console.log('event DELETED', response);
             res.redirect('/events');
