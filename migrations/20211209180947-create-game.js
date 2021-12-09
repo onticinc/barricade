@@ -29,11 +29,11 @@ module.exports = {
       highScore: {
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
       status: {
         type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER
       },
       eventId: {
         type: Sequelize.INTEGER
