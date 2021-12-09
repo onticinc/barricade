@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
     let eventIndex = Number(req.params.id);
     console.log('IS THIS A NUMBER?', eventIndex);
-    event.findByPk(eventIndex)
+    Event.findByPk(eventIndex)
         .then((event) => {
             if (event) {
                 event = event.toJSON();
