@@ -4,17 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify 2.0</title>
+    <title>Games</title>
   </head>
   <body>
-    <a href="/albums">View All Albums</a>
-    <h1><%= album.title %></h1>
-    <h2><%= album.year %></h2>
-    <h3><%= album.length %></h3>
-    <h4><%= album.tracks %></h4>
-    <a href="/albums/edit/<%= album.id %>">Edit</a>
+    <a href="/games">View All Games</a>
+    <label for="game-id">Game Id:</label>
+    <h4><%= games.id %></h4>
 
-    <form method="POST" action="/albums/<%= album.id %>/?_method=DELETE">
+    <label for="game-name">Game Name:</label>
+    <h2><%= games.name %></h2>
+
+    <label for="game-model">Game Model:</label>
+    <h2><%= games.Model %></h2>
+
+    <label for="game-manufacturer">Game Manufacturer:</label>
+    <h3><%= games.manufacturer %></h3>
+
+    <label for="game-serialNumber">Game Notes:</label>
+    <h4><%= games.serialNumber %></h4>
+
+    <label for="game-picture">Game Picture:</label>
+    <h4><%= games.picture %></h4>
+
+    <label for="game-high-score">Game High Score:</label>
+    <h4><%= games.highScore %></h4>
+
+    <label for="game-status">Game Status:</label>
+    <h4><%= games.status %></h4>
+
+    <a href="/games/edit/<%= game.id %>">Edit</a>
+
+    <form method="POST" action="/games/<%= games.id %>/?_method=DELETE">
       <input type="submit" value="Delete Album" />
     </form>
   </body>
