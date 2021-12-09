@@ -22,8 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     picture: DataTypes.STRING,
     date: DataTypes.DATE,
     notes: DataTypes.TEXT,
-    userId: DataTypes.INTEGER,
-    gameId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Event',
