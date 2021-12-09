@@ -1,3 +1,5 @@
+# Multner
+
 Using Multner for uploading images.
 https://stackoverflow.com/questions/46770818/how-to-handle-file-upload-using-sequelize-mysql-express-js
 
@@ -38,6 +40,17 @@ Express authentication template using Passport + Flash messages + custom middlew
 - EJS Templating and EJS Layouts
 
 ### User Model
+
+| Column Name | Data Type | Notes                              |
+| ----------- | --------- | ---------------------------------- |
+| id          | Integer   | Serial Primary Key, Auto-generated |
+| name        | String    | Must be provided                   |
+| email       | String    | Must be unique / used for login    |
+| password    | String    | Stored as a hash                   |
+| createdAt   | Date      | Auto-generated                     |
+| updatedAt   | Date      | Auto-generated                     |
+
+###
 
 | Column Name | Data Type | Notes                              |
 | ----------- | --------- | ---------------------------------- |
