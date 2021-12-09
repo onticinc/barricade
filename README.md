@@ -1,3 +1,28 @@
+Using Multner for uploading images.
+https://stackoverflow.com/questions/46770818/how-to-handle-file-upload-using-sequelize-mysql-express-js
+
+# model create statements
+
+npx sequelize-cli model:create --name User --attributes firstName:string,lastName:string,initials:string,phoneNumber:string,userLevel:integer,email:string,password:string,gameId:integer,eventId:integer --force
+
+npx sequelize-cli model:create --name Event --attributes name:string,description:string,link:string,cost:float,picture:string,date:date,notes:text,userId:integer,gameId:integer --force
+
+npx sequelize-cli model:create --name Game --attributes name:string,model:string,manufacturer:string,serialNumber:string,notes:text,picture:string,highScore:integer,userId:integer,status:string,eventId:integer,userId:integer --force
+
+npx sequelize-cli model:create --name Beer --attributes name:string,type:string,brewery:string,pricePerGlass:integer,pricePerGrowler:integer,costPerKeg:integer,abv:integer,ibu:integer,notes:text,inStock:string
+
+npx sequelize-cli model:create --name Wine --attributes name:string,type:string,winery:string,pricePerGlass:integer,pricePerBottle:integer,abv:integer,ava:string,notes:text,status:string
+
+npx sequelize-cli model:create --name Food --attributes name:string,type:string,description:text,price:integer,picture:string,notes:text,status:string
+
+npx sequelize-cli model:create --name Merch --attributes name:string,type:string,description:text,price:integer,picture:string,notes:text,status:string
+
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli db:migrate
+
+models.User.hasMany(models.Game, { foreignKey: 'gameId' });
+models.User.hasMany(models.Event, { foreignKey: 'eventId' });
+
 # `Express Authentication`
 
 Express authentication template using Passport + Flash messages + custom middleware

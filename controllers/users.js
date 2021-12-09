@@ -79,7 +79,7 @@ router.post('/', (req, res) => {
         lastName: req.body.lastName,
         initials: req.body.initials,
         phoneNumber: req.body.phoneNumber,
-        userLevel: Number(req.body.picture),
+        userLevel: Number(req.body.userLevel),
         email: req.body.email,
         password: req.body.password,
     })
@@ -106,7 +106,7 @@ router.put('/:id', (req, res) => {
         lastName: req.body.lastName,
         initials: req.body.initials,
         phoneNumber: req.body.phoneNumber,
-        userLevel: Number(req.body.picture),
+        userLevel: Number(req.body.userLevel),
         email: req.body.email,
         password: req.body.password,
     }, { where: { id: userIndex } })

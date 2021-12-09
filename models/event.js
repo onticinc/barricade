@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     cost: DataTypes.FLOAT,
     picture: DataTypes.STRING,
     date: DataTypes.DATE,
-    notes: DataTypes.TEXT
+    notes: DataTypes.TEXT,
+    userId: DataTypes.INTEGER,
+    gameId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Event',
