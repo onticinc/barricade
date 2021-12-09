@@ -8,16 +8,29 @@
   </head>
   <body>
     <a href="/beers">View All Beers</a>
-    <h1><%= beer.name %></h1>
-    <h2><%= beer.type %></h2>
-    <h3><%= beer.brewery %></h3>
-    <h4><%= beer.pricePerGlass %></h4>
-    <h4><%= beer.pricePerGrowler %></h4>
-    <h4><%= beer.costPerKeg %></h4>
-    <h4><%= beer.abv %></h4>
-    <h4><%= beer.ibu %></h4>
-    <h4><%= beer.notes %></h4>
-    <h4><%= beer.status %></h4>
+    <div class="row">
+      <label for="beerName">Beer Name:</label>
+      <h1><%= beer.name %></h1>
+
+      <label for="beerType">Beer Type</label>
+      <h2><%= beer.type %></h2>
+      <label for="beerBrewery">Brewery:</label>
+      <h3><%= beer.brewery %></h3>
+      <label for="beerPricePerGlass">Price Per Glass:</label>
+      <h4><%= beer.pricePerGlass %></h4>
+      <label for="beerPricePerGrowler">Price Per Growler:</label>
+      <h4><%= beer.pricePerGrowler %></h4>
+      <label for="beerCostPerKeg">Cost Per Keg:</label>
+      <h4><%= beer.costPerKeg %></h4>
+      <label for="beerAbv">ABV%:</label>
+      <h4><%= beer.abv %></h4>
+      <label for="beerIbu">IBU%:</label>
+      <h4><%= beer.ibu %></h4>
+      <label for="beerNotes">Notes:</label>
+      <h4><%= beer.notes %></h4>
+      <label for="beerStatus">Status:</label>
+      <h4><%= beer.status %></h4>
+    </div>
 
     <a href="/beers/edit/<%= beer.id %>">Edit</a>
 

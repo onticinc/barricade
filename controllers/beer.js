@@ -50,7 +50,7 @@ router.get('/edit/:id', (req, res) => {
 router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
     let beerIndex = Number(req.params.id);
-    console.log('IS THIS A NUMBER?', beerIndex);
+    //console.log('IS THIS A NUMBER?', beerIndex);
     Beer.findByPk(beerIndex)
         .then((beer) => {
             if (beer) {
@@ -84,7 +84,7 @@ router.post('/', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
-        inStock: Number(req.body.notes),
+        status: req.body.status,
     })
         .then((newBeer) => {
             console.log('NEW BEER', newBeer.toJSON());
@@ -114,7 +114,7 @@ router.put('/:id', (req, res) => {
         abv: Number(req.body.abv),
         ibu: Number(req.body.ibu),
         notes: req.body.notes,
-        inStock: Number(req.body, inStock),
+        status: req.body.status,
     }, { where: { id: beerIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);

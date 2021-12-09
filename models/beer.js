@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     abv: DataTypes.INTEGER,
     ibu: DataTypes.INTEGER,
     notes: DataTypes.TEXT,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Beer',
