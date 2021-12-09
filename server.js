@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const methodOverride = require('method-override');
+const multer = require('multer')
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
@@ -56,6 +57,7 @@ app.use('/users', require('./controllers/users'));
 app.use('/foods', require('./controllers/food'));
 app.use('/games', require('./controllers/game'));
 app.use('/merch', require('./controllers/merch'));
+app.use('/highscore', require('./controllers/highscore'));
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

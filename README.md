@@ -1,7 +1,16 @@
+# External API
+
+https://uselessfacts.jsph.pl/
+
+https://api.chucknorris.io/
+
 # Multner
 
 Using Multner for uploading images.
 https://stackoverflow.com/questions/46770818/how-to-handle-file-upload-using-sequelize-mysql-express-js
+
+Thinking about using this to compress pictures before uploading.
+https://thewebdev.info/2020/09/05/compress-images-before-uploading-to-a-server-with-the-compress-js-library/
 
 # model create statements
 
