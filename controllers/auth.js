@@ -37,10 +37,10 @@ router.post('/signup', async (req, res) => {
 
     if (created) {
       // if created, success and we will redirect back to / page
-      console.log(`----- ${user.name} was created -----`);
+      console.log(`----- ${user.firstName} was created -----`);
       const successObject = {
-        successRedirect: '/index',
-        successFlash: `Welcome ${user.name}. Account was created and logging in...`
+        successRedirect: '/',
+        successFlash: `Welcome ${user.firstName}. Account was created and logging in...`
       }
       // 
       passport.authenticate('local', successObject)(req, res);
