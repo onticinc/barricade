@@ -7,10 +7,10 @@
     <title>All Albums</title>
   </head>
   <body>
-    <% for( let index = 0; index < albums.length; index++ ) { %> <% let a =
-    albums[index]; %> <% a = a.toJSON() %>
-    <p><%= a.title %></p>
-    <a href="/albums/<%= a.id %>">View Album</a>
+    <% for( let index = 0; index < games.length; index++ ) { %> <% let a =
+    games[index]; %> <% a = a.toJSON() %>
+    <p><%= a.name %></p>
+    <a href="/games/<%= a.id %>">View Games</a>
     <hr />
     <% } %>
   </body>

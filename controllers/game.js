@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then((gameList) => {
             //console.log('FOUND ALL GAMES', gameList);
             // res.json({ game: gameList });
-            res.render('game/index', { games: gameList })
+            res.render('games/index', { game: gameList })
         })
         .catch((err) => {
             //console.log('ERROR', err);

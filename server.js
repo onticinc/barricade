@@ -54,7 +54,6 @@ app.use('/auth', require('./controllers/auth'));
 app.use('/beers', require('./controllers/beer'));
 app.use('/events', require('./controllers/event'));
 app.use('/users', require('./controllers/users'));
-app.use('/foods', require('./controllers/food'));
 app.use('/games', require('./controllers/game'));
 app.use('/merch', require('./controllers/merch'));
 app.use('/highscore', require('./controllers/highscore'));

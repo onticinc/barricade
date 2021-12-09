@@ -32,7 +32,7 @@ router.get('/new', (req, res) => {
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
     let eventIndex = Number(req.params.id);
-    event.findByPk(eventIndex)
+    Event.findByPk(eventIndex)
         .then((event) => {
             if (event) {
                 event = event.toJSON();
