@@ -14,13 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Event.init({
+    name: DataTypes.STRING,
     description: DataTypes.STRING,
     link: DataTypes.STRING,
     cost: DataTypes.FLOAT,
     picture: DataTypes.STRING,
     date: DataTypes.DATE,
     time: DataTypes.STRING,
-    inStock: DataTypes.INTEGER
+    notes: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Event',

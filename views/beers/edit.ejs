@@ -15,6 +15,7 @@
     name="pricePerGlass"
     value="<%= beer.pricePerGlass %>"
   />
+
   <label for="pricePerGrowler">Price Per Growler:</label>
   <input
     id="pricePerGrowler"
@@ -22,19 +23,28 @@
     name="pricePerGrowler"
     value="<%= beer.pricePerGrowler %>"
   />
+
+  <label for="costPerKeg">Cost Per Keg:</label>
   <input
     id="costPerKeg"
     type="number"
     name="pricePerGrowler"
     value="<%= beer.pricePerGrowler %>"
   />
-  <input id="beerAbv" type="number" name="abv" value="<%= beer.abv %>" />
-  <input id="beerIbu" type="number" name="ibu" value="<%= beer.ibu %>" />
+
+  <label for="costPerKeg">Beer ABV:</label>
+  <input id="beerAbv" type="number" name="beerAbv" value="<%= beer.abv %>" />
+
+  <label for="beerIbu">Beer IBU:</label>
+  <input id="beerIbu" type="number" name="beerIbu" value="<%= beer.ibu %>" />
+
+  <label for="beerNotes">Beer ABV:</label>
   <input id="beerNotes" type="text" name="notes" value="<%= beer.notes %>" />
+
   <input
     id="beerInStock"
     type="text"
-    name="notes"
+    name="inStock"
     value="<%= beer.inStock %>"
   />
   <input type="submit" />

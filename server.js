@@ -8,12 +8,10 @@ const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const methodOverride = require('method-override');
 
-
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
 
 app.set('view engine', 'ejs');
-
 
 app.use(methodOverride('_method'));
 app.use(require('morgan')('dev'));
@@ -58,7 +56,6 @@ app.use('/users', require('./controllers/users'));
 app.use('/foods', require('./controllers/food'));
 app.use('/games', require('./controllers/game'));
 app.use('/merch', require('./controllers/merch'));
-
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

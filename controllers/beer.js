@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .then((beerList) => {
             console.log('FOUND ALL Beers', beerList);
             // res.json({ beer: beerList });
-            res.render('beers/index', { beers: beerList })
+            res.render('beer/index', { beers: beerList })
         })
         .catch((err) => {
             console.log('ERROR', err);
