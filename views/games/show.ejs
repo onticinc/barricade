@@ -9,33 +9,33 @@
   <body>
     <a href="/games">View All Games</a>
     <label for="game-id">Game Id:</label>
-    <h4><%= games.id %></h4>
+    <h4><%= game.id %></h4>
 
     <label for="game-name">Game Name:</label>
-    <h2><%= games.name %></h2>
+    <h2><%= game.name %></h2>
 
     <label for="game-model">Game Model:</label>
-    <h2><%= games.Model %></h2>
+    <h2><%= game.Model %></h2>
 
     <label for="game-manufacturer">Game Manufacturer:</label>
-    <h3><%= games.manufacturer %></h3>
+    <h3><%= game.manufacturer %></h3>
 
     <label for="game-serialNumber">Game Notes:</label>
-    <h4><%= games.serialNumber %></h4>
+    <h4><%= game.serialNumber %></h4>
 
     <label for="game-picture">Game Picture:</label>
-    <h4><%= games.picture %></h4>
+    <h4><%= game.picture %></h4>
 
     <label for="game-high-score">Game High Score:</label>
-    <h4><%= games.highScore %></h4>
+    <h4><%= game.highScore %></h4>
 
     <label for="game-status">Game Status:</label>
-    <h4><%= games.status %></h4>
+    <h4><%= game.status %></h4>
 
     <a href="/games/edit/<%= game.id %>">Edit</a>
 
-    <form method="POST" action="/games/<%= games.id %>/?_method=DELETE">
-      <input type="submit" value="Delete Album" />
+    <form method="POST" action="/games/<%= game.id %>/?_method=DELETE">
+      <input type="submit" value="Delete Game" />
     </form>
   </body>
 </html>

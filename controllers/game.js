@@ -79,11 +79,10 @@ router.post('/', (req, res) => {
         model: req.body.model,
         manufacturer: req.body.manufacturer,
         serialNumber: req.body.serialNumber,
-        notes: req.body.pricePerGlass,
+        notes: req.body.notes,
         picture: req.body.picture,
         highScore: Number(req.body.highScore),
-        userId: Number(req.body.userId),
-        working: Number(req.body.working),
+        working: req.body.working,
     })
 
         .then((newGame) => {
