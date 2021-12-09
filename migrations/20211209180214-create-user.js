@@ -29,12 +29,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      gameId: {
-        type: Sequelize.INTEGER
-      },
-      eventId: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
