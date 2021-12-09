@@ -1,15 +1,32 @@
-<form method="POST" action="/albums/<%= album.id %>/?_method=PUT">
-  <label for="title">Title</label>
-  <input type="text" name="title" value="<%= album.title %>" />
+<form method="POST" action="/events/<%= event.id %>/?_method=PUT">
+  <label for="name">Event Name:</label>
+  <input type="text" name="name" value="<%= event.name %>" />
 
-  <label for="length">Length</label>
-  <input id="length" type="text" name="length" value="<%= album.length %>" />
+  <label for="description">Event Description</label>
+  <input
+    id="description"
+    type="text"
+    name="description"
+    value="<%= event.description %>"
+  />
 
-  <label for="tracks">Tracks</label>
-  <input id="tracks" type="text" name="tracks" value="<%= album.tracks %>" />
+  <label for="link">Event Link (Event Brite, Facebook, Meetup, Etc...):</label>
+  <input id="link" type="text" name="link" value="<%= event.link %>" />
 
-  <label for="year">Year</label>
-  <input id="year" type="text" name="year" value="<%= album.year %>" />
+  <label for="cost">Cost:</label>
+  <input id="cost" type="text" name="cost" value="<%= event.cost %>" />
+
+  <label for="picture">Event Photo / Flyer:</label>
+  <input
+    id="picture"
+    type="file"
+    class="form-control-file"
+    name="picture"
+    href="../<%= event.picture %>"
+  />
+
+  <label for="cost">Cost:</label>
+  <input id="cost" type="text" name="cost" value="<%= event.cost %>" />
 
   <input type="submit" />
 </form>
