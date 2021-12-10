@@ -57,6 +57,7 @@ app.use('/users', require('./controllers/users'));
 app.use('/games', require('./controllers/game'));
 app.use('/merch', require('./controllers/merch'));
 app.use('/highscore', require('./controllers/highscore'));
+app.use('/chuck', require('./controllers/chuckNorris'));
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
