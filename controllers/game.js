@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
         .then((game) => {
             if (game) {
                 game = game.toJSON();
-                console.log('IS THIS A GAME?', game);
+                //console.log('IS THIS A GAME?', game);
                 res.render('games/show', { game });
             } else {
                 console.log('This game does not exist');
