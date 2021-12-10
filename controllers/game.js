@@ -35,7 +35,7 @@ app.get('/games/:id/high-score', (req, res) => {
         .then((game) => {
             if (game) {
                 game = game.toJSON();
-                res.render('games/edit', { game });
+                res.render('games/highscore', { game });
             } else {
                 //console.log('This game does not exist');
                 // render a 404 page
