@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify 2.0</title>
+    <title>User List</title>
   </head>
   <body>
-    <a href="/albums">View All Albums</a>
-    <h1><%= album.title %></h1>
-    <h2><%= album.year %></h2>
-    <h3><%= album.length %></h3>
-    <h4><%= album.tracks %></h4>
-    <a href="/albums/edit/<%= album.id %>">Edit</a>
+    <a href="/users">View All Users</a>
+    <label for="firstName">First Name:</label>
+    <h1><%= user.firstName %></h1>
 
-    <form method="POST" action="/albums/<%= album.id %>/?_method=DELETE">
+    <label for="lastName">Last Name:</label>
+    <h2><%= user.lastName %></h2>
+
+    <label for="initials">Initial's:</label>
+    <h3><%= user.initials %></h3>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <h4><%= user.phoneNumber %></h4>
+
+    <label for="userLevel">User Level:</label>
+    <h4><%= user.userLevel %></h4>
+
+    <label for="email">Email:</label>
+    <h4><%= user.email %></h4>
+
+    <a href="/users/edit/<%= user.id %>">Edit</a>
+
+    <form method="POST" action="/users/<%= user.id %>/?_method=DELETE">
       <input type="submit" value="Delete Album" />
     </form>
   </body>

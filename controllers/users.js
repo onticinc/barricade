@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
             if (user) {
                 user = user.toJSON();
                 console.log('IS THIS A USER?', user);
-                res.render('user/show', { user });
+                res.render('users/show', { user });
             } else {
                 console.log('This user does not exist');
                 // render a 404 page
