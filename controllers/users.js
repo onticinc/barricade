@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Users } = require('../models');
+const { User } = require('../models');
 
 /**
  * ============================
@@ -11,11 +11,11 @@ const { Users } = require('../models');
 // User route
 router.get('/', (req, res) => {
     // get all user
-    Users.findAll()
+    User.findAll()
         .then((userList) => {
-            console.log('FOUND ALL USERS', userList);
+            //console.log('FOUND ALL USERS', userList);
             // res.json({ user: userList });
-            res.render('user/index', { user: userList })
+            res.render('users/index', { user: userList })
         })
         .catch((err) => {
             console.log('ERROR', err);
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.render('user/new');
+    res.render('users/new');
 });
 
 // GET to Edit page
