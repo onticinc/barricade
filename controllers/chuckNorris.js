@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Beer } = require('../models');
+const { Chuck } = require('../models');
 const fetch = require('node-fetch');
 
 /**

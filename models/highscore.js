@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.Game.belongsTo(models.User, { foreignKey: 'userId' });
+      models.Game.belongsTo(models.Event, { foreignKey: 'eventId' });
+      models.Event.hasMany(models.Event, { foreignKey: 'eventId' });
     }
   };
   HighScore.init({

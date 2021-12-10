@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Event.hasMany(models.Game, { foreignKey: 'eventId' });
       models.Event.belongsTo(models.User, { foreignKey: 'userId' });
+      models.Event.belongsTo(models.HighScore, { foreignKey: 'highScoreId' });
     }
   };
   Event.init({
