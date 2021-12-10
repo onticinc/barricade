@@ -28,13 +28,13 @@ router.get('/new', (req, res) => {
 });
 
 // GET to Edit page
-router.get('/user/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
     let userIndex = Number(req.params.id);
     User.findByPk(userIndex)
         .then((user) => {
             if (user) {
                 user = user.toJSON();
-                res.render('user/edit', { user });
+                res.render('users/edit', { user });
             } else {
                 console.log('This user does not exist');
                 // render a 404 page
@@ -97,7 +97,7 @@ router.post('/', (req, res) => {
 /**
  * EDIT
  * */
-router.put('/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
     let userIndex = Number(req.params.id);
