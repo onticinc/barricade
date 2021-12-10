@@ -5,10 +5,10 @@
   align-items: center;
 }
 
-html {
+.html {
   font-family: "Nunito Sans", sans-serif;
   color: rgb(195, 0, 0);
-  background-color: coral;
+  background-color: rgb(90, 0, 173);
   margin: 4px;
 }
 

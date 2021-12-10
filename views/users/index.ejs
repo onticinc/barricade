@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Authentication</title>
-    <!-- <script
-      src="https://kit.fontawesome.com/15181efa86.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css"
-    /> -->
-    <link rel="stylesheet" type="text/css" href="../../css/ghost-blog.css" />
-  </head>
-  <body>
-    <% for( let index = 0; index < user.length; index++ ) { %> <% let a =
-    user[index]; %> <% a = a.toJSON() %>
-    <p><%= a.name %></p>
-    <a href="/users/<%= a.id %>">View User</a>
-    <hr />
-    <% } %>
-  </body>
-</html>
+<% for( let index = 0; index < user.length; index++ ) { %> <% let a =
+user[index]; %> <% a = a.toJSON() %>
+<p><%= a.name %></p>
+<a href="/users/<%= a.id %>">View User</a>
+<hr />
+<% } %>

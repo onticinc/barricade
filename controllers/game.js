@@ -27,6 +27,29 @@ router.get('/new', (req, res) => {
     res.render('games/new');
 });
 
+
+// Get High Score
+app.get('/games/:id/high-score', (req, res) => {
+    let gameHighScore = Number(req.params.highScore);
+    Game.findByPk(gameHighScore)
+        .then((game) => {
+            if (game) {
+                game = game.toJSON();
+                res.render('games/edit', { game });
+            } else {
+                //console.log('This game does not exist');
+                // render a 404 page
+                res.render('404', { message: 'Game does not exist' });
+            }
+        })
+        .catch((error) => {
+            console.log('ERROR', error);
+        });
+
+})
+
+
+
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
     let gameIndex = Number(req.params.id);

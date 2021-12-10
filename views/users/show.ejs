@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Authentication</title>
-    <script
-      src="https://kit.fontawesome.com/15181efa86.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="../../css/ghost-blog.css" />
-   -->
-  </head>
-  <body>
-    <a href="/users">View All Users</a>
-    <label for="firstName">First Name:</label>
-    <h1><%= user.firstName %></h1>
+<a href="/users">View All Users</a>
+<form>
+  <label for="firstName">First Name:</label>
+  <h1><%= user.firstName %></h1>
 
-    <label for="lastName">Last Name:</label>
-    <h2><%= user.lastName %></h2>
+  <label for="lastName">Last Name:</label>
+  <h2><%= user.lastName %></h2>
 
-    <label for="initials">Initial's:</label>
-    <h3><%= user.initials %></h3>
+  <label for="initials">Initial's:</label>
+  <h3><%= user.initials %></h3>
 
-    <label for="phoneNumber">Phone Number:</label>
-    <h4><%= user.phoneNumber %></h4>
+  <label for="phoneNumber">Phone Number:</label>
+  <h4><%= user.phoneNumber %></h4>
 
-    <label for="userLevel">User Level:</label>
-    <h4><%= user.userLevel %></h4>
+  <label for="userLevel">User Level:</label>
+  <h4><%= user.userLevel %></h4>
 
-    <label for="email">Email:</label>
-    <h4><%= user.email %></h4>
+  <label for="email">Email:</label>
+  <h4><%= user.email %></h4>
 
-    <a href="/users/edit/<%= user.id %>">Edit</a>
+  <a href="/users/edit/<%= user.id %>">Edit</a>
 
-    <form method="POST" action="/users/<%= user.id %>/?_method=DELETE">
-      <input type="submit" value="Delete Album" />
-    </form>
-  </body>
-</html>
+  <form method="POST" action="/users/<%= user.id %>/?_method=DELETE">
+    <input type="submit" value="Delete Album" />
+  </form>
+</form>
