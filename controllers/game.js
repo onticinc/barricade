@@ -29,7 +29,7 @@ router.get('/new', (req, res) => {
 
 
 // Get High Score
-app.get('/games/:id/high-score', (req, res) => {
+app.get('/:id/high-score', (req, res) => {
     let gameHighScore = Number(req.params.highScore);
     Game.findByPk(gameHighScore)
         .then((game) => {
