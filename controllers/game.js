@@ -29,24 +29,24 @@ router.get('/new', (req, res) => {
 
 
 // Get High Score
-app.get('/:id/high-score', (req, res) => {
-    let gameHighScore = Number(req.params.highScore);
-    Game.findByPk(gameHighScore)
-        .then((game) => {
-            if (game) {
-                game = game.toJSON();
-                res.render('games/highscore', { game });
-            } else {
-                //console.log('This game does not exist');
-                // render a 404 page
-                res.render('404', { message: 'Game does not exist' });
-            }
-        })
-        .catch((error) => {
-            console.log('ERROR', error);
-        });
+// app.get('/:id/high-score', (req, res) => {
+//     let gameHighScore = Number(req.params.highScore);
+//     Game.findByPk(gameHighScore)
+//         .then((game) => {
+//             if (game) {
+//                 game = game.toJSON();
+//                 res.render('games/highscore', { game });
+//             } else {
+//                 //console.log('This game does not exist');
+//                 // render a 404 page
+//                 res.render('404', { message: 'Game does not exist' });
+//             }
+//         })
+//         .catch((error) => {
+//             console.log('ERROR', error);
+//         });
 
-})
+// })
 
 
 
