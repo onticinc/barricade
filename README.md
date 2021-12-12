@@ -1,3 +1,7 @@
+# Installed Bulma Trying to figure out public folder css and
+
+https://bulma.io/
+
 # External API
 
 https://uselessfacts.jsph.pl/

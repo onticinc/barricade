@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Game.belongsTo(models.User, { foreignKey: 'userId' });
       models.Game.belongsTo(models.Event, { foreignKey: 'eventId' });
+      models.Game.hasMany(models.HighScore, { foreignKey: 'gameId' });
       // has many to high score
     }
   };

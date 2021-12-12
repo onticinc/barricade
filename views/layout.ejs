@@ -16,7 +16,7 @@
   </head>
   <body>
     <%- include('partials/toolbar') %> <%- include('partials/alerts') %> <%
-    if(!currentUser) { %> // Trying to put this in my toolbar.
+    if(!currentUser) { %>
     <li>
       <a href="/auth/login">Login</a>
     </li>
@@ -26,7 +26,6 @@
     <% } else { %>
     <li><a href="/auth/logout">Logout</a></li>
     <li><a href="/profile">Profile</a></li>
-
     <% } %> <%- body %>
   </body>
 </html>

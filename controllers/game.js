@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { Game } = require('../models');
-
+const { Game, HighScore } = require('../models');
+const isLoggedIn = require('../middleware/isLoggedIn');
+const game = require('../models/game');
 /**
  * ============================
  * Game Controller
@@ -29,24 +30,63 @@ router.get('/new', (req, res) => {
 
 
 // Get High Score
-// app.get('/:id/high-score', (req, res) => {
-//     let gameHighScore = Number(req.params.highScore);
-//     Game.findByPk(gameHighScore)
-//         .then((game) => {
-//             if (game) {
-//                 game = game.toJSON();
-//                 res.render('games/highscore', { game });
-//             } else {
-//                 //console.log('This game does not exist');
-//                 // render a 404 page
-//                 res.render('404', { message: 'Game does not exist' });
-//             }
-//         })
-//         .catch((error) => {
-//             console.log('ERROR', error);
-//         });
+router.get('/high-score', (req, res) => {
+    let gameHighScore = Number(req.params.highScore);
+    Game.findAll({
+        include: [HighScore]
+    })
+        .then((gameList) => {
+            if (gameList) {
+                gameList = gameList.map((game) => {
+                    return game.toJSON();
+                });
+                console.log('.. this is the game list ...');
+                console.log(gameList);
+                // res.render('games/highscore', { gameList });
+                res.json({ gameList });
+            } else {
+                //console.log('This game does not exist');
+                // render a 404 page
+                res.render('404', { message: 'Game does not exist' });
+            }
+        })
+        .catch((error) => {
+            console.log('ERROR', error);
+        });
+})
 
-// })
+router.get('/high-score/new', isLoggedIn, function (req, res) {
+    res.render('highScore/new');
+});
+
+// high score route
+router.post('/high-score', isLoggedIn, function (req, res) {
+    console.log('... this is the user submittitng for highscore ...');
+    console.log(req.user); // user object for the logged in user.
+    console.log(req.body); // object with submitted data
+    console.log(req.body.game.toLowerCase());
+    let gameName = req.body.game.toLowerCase();
+    Game.findOne({ where: { name: gameName } })
+        .then(function (game) {
+            game.createHighScore({
+                userId: req.user.id,
+                initials: req.body.initials,
+                highScore: req.body.highScore
+            })
+                .then(function (newHighScore) {
+                    console.log('this is the high score', newHighScore.toJSON());
+                    res.redirect(`/games/${newHighScore.gameId}`)
+                })
+                .catch(function (error) {
+                    console.log("this is an error", error);
+                    res.redirect('/games/high-score/new');
+                })
+        })
+        .catch(function (error) {
+            console.log("this is an error", error);
+            res.redirect('/games/high-score/new');
+        })
+});
 
 
 
@@ -70,6 +110,7 @@ router.get('/edit/:id', (req, res) => {
 
 })
 
+// Game Show Route
 router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
     let gameIndex = Number(req.params.id);
