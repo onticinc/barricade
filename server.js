@@ -33,8 +33,9 @@ app.use(session({
   saveUninitialized: true    // If we have a new session, we save it, therefore making that true
 }));
 
-app.use(flash()); // flash middleware
 
+// flash middleware
+app.use(flash());
 app.use(flash());
 
 app.use(passport.initialize());
@@ -47,13 +48,10 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Navigation 
 app.get('/', (req, res) => {
   res.render('index');
 })
-
-
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {

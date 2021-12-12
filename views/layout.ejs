@@ -27,54 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../../public/css/app.css" />
   </head>
   <body>
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <div
-          class="
-            d-flex
-            flex-wrap
-            align-items-center
-            justify-content-center justify-content-lg-start
-          "
-        >
-          <a
-            href="/"
-            class="
-              d-flex
-              align-items-center
-              mb-2 mb-lg-0
-              text-white text-decoration-none
-            "
-            ><i class="fas fa-gamepad"></i>
-          </a>
-
-          <ul
-            class="
-              nav
-              col-12 col-lg-auto
-              me-lg-auto
-              mb-2
-              justify-content-center
-              mb-md-0
-            "
-          >
-            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-            <li>
-              <a href="/games" class="nav-link px-2 text-white">Games</a>
-            </li>
-            <li>
-              <a href="/beers" class="nav-link px-2 text-white">Beer</a>
-            </li>
-            <li>
-              <a href="/wines" class="nav-link px-2 text-white">Wine</a>
-            </li>
-            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-          </ul>
-          <div class="text-end"></div>
-        </div>
-      </div>
-    </header>
-    <%- include('partials/alerts') %> <% if (!currentUser) { %>
+    <%- include('partials/toolbar') %> <%- include('partials/alerts') %> <%
+    if(!currentUser) { %> // Trying to put this in my toolbar.
     <li>
       <a href="/auth/login">Login</a>
     </li>
@@ -87,6 +41,4 @@
 
     <% } %> <%- body %>
   </body>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>
