@@ -24,6 +24,7 @@
     ></script>
 
     <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/app.css" />
   </head>
   <body>
     <header class="p-3 bg-dark text-white">
@@ -57,38 +58,35 @@
               mb-md-0
             "
           >
-            <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Games</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Beers</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Wines</a></li>
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+            <li>
+              <a href="/games" class="nav-link px-2 text-white">Games</a>
+            </li>
+            <li>
+              <a href="/beers" class="nav-link px-2 text-white">Beer</a>
+            </li>
+            <li>
+              <a href="/wines" class="nav-link px-2 text-white">Wine</a>
+            </li>
             <li><a href="#" class="nav-link px-2 text-white">About</a></li>
           </ul>
-          <div class="text-end">
-            <form action="https://google.com">
-              <button
-                type="submit"
-                value="Go to Google"
-                class="btn btn-outline-light me-2"
-              >
-                Login
-              </button>
-            </form>
-            <form action="https://google.com">
-              <button type="submit" class="btn btn-warning">Sign-up</button>
-            </form>
-          </div>
+          <div class="text-end"></div>
         </div>
       </div>
     </header>
     <%- include('partials/alerts') %> <% if (!currentUser) { %>
     <li>
-      <a type="button" class="btn btnwarning" href="/auth/signup">Signup</a>
+      <a href="/auth/login">Login</a>
     </li>
-    <li><a href="/auth/login">Login</a></li>
+    <li>
+      <a href="/auth/signup">Sign Up</a>
+    </li>
     <% } else { %>
     <li><a href="/auth/logout">Logout</a></li>
     <li><a href="/profile">Profile</a></li>
+
     <% } %> <%- body %>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>

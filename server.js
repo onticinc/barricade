@@ -7,7 +7,8 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const methodOverride = require('method-override');
-const multer = require('multer')
+
+//const multer = require('multer')
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
@@ -17,7 +18,14 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
+
+// STATIC FILES
 app.use(express.static(__dirname + '/public'));
+app.use('/css', express.static(__dirname + 'public/css/app'))
+
+
+// SET TEMPLATING ENGINE
+
 app.use(layouts);
 app.use(session({
   secret: SECRET_SESSION,    // What we actually will be giving the user on our site as a session cookie
@@ -39,9 +47,13 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// Navigation 
 app.get('/', (req, res) => {
   res.render('index');
 })
+
+
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
