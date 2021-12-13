@@ -21,18 +21,12 @@
             <th scope="col">Game Info</th>
           </tr>
         </thead>
-        <tbody id="lecturesTableData">
-          <% if(data.length){ %> <% for(let i = 0; i < data.length; i++) { %>
+        <tbody id="gameHighScore">
+          <% if(gameList.length){ %> <% for(let i = 0; i < data.length; i++) {
+          %>
           <tr>
-            <td><%=data[i].school%></td>
-            <td><%=data[i].location%></td>
-            <td><%=data[i].class%></td>
-            <td><%=data[i].subject%></td>
-            <td><%=data[i].teacher_name%></td>
-            <td><%=data[i].date%></td>
-            <td><%=data[i].start_time%></td>
-            <td><%=data[i].end_time%></td>
-            <td><%=data[i].additional_notes%></td>
+            <td><%=user[i].initials%></td>
+            <td><%=user[i].highScore%></td>
           </tr>
           <% } %> <% }else{ %>
           <tr>
@@ -50,33 +44,3 @@
     ></script>
   </body>
 </html>
-
-<script>
-  const tbody = document.getElementById("lecturesTableData");
-
-  // Helper function for sorting on a given column, with a given comparator
-  function tableSort(colNum, cmp) {
-    let rows = [...tbody.rows];
-    rows
-      .sort((a, b) =>
-        cmp(a.cells[colNum].textContent, b.cells[colNum].textContent)
-      )
-      .map((row) => tbody.appendChild(row));
-  }
-
-  function sortSchoolAscending() {
-    tableSort(0, (a, b) => a - b); // assuming that school column has number representations
-  }
-
-  function sortSchoolDescending() {
-    tableSort(0, (a, b) => b - a); // assuming that school column has number representations
-  }
-
-  function sortLocationAscending() {
-    tableSort(1, (a, b) => a.localeCompare(b)); // assuming that location column has strings
-  }
-
-  function sortLocationDescending() {
-    tableSort(1, (a, b) => b.localeCompare(a)); // assuming that location column has strings
-  }
-</script>

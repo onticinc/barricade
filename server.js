@@ -62,6 +62,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 // controllers
 app.use('/auth', require('./controllers/auth'));
 app.use('/beers', require('./controllers/beer'));
+app.use('/wines', require('./controllers/wine'));
 app.use('/events', require('./controllers/event'));
 app.use('/users', require('./controllers/users'));
 app.use('/games', require('./controllers/game'));
