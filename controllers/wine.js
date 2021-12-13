@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { Beer } = require('../models');
+const { Wine } = require('../models');
 
 /**
  * ============================
- * Beer Controller
+ * Wine Controller
  * ============================
 */
 
-// beer route
+// Wine route
 router.get('/', (req, res) => {
-    // get all beers
-    Beer.findAll()
-        .then((beerList) => {
-            console.log('FOUND ALL Beers', beerList);
-            // res.json({ beer: beerList });
-            res.render('beers/index', { beers: beerList })
+    // get all wines
+    Wine.findAll()
+        .then((wineList) => {
+            console.log('FOUND ALL WINES', wineList);
+            // res.json({ wine: wineList });
+            res.render('wines/index', { wines: wineList })
         })
         .catch((err) => {
             console.log('ERROR', err);
@@ -24,21 +24,21 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.render('beers/new');
+    res.render('wines/new');
 });
 
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
-    let beerIndex = Number(req.params.id);
-    Beer.findByPk(beerIndex)
-        .then((beer) => {
-            if (beer) {
-                beer = beer.toJSON();
-                res.render('beers/edit', { beer });
+    let wineIndex = Number(req.params.id);
+    Wine.findByPk(wineIndex)
+        .then((wine) => {
+            if (wine) {
+                wine = wine.toJSON();
+                res.render('wines/edit', { wine });
             } else {
-                console.log('This Beer does not exist');
+                console.log('This wine does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Beer does not exist' });
+                res.render('404', { message: 'Wine does not exist' });
             }
         })
         .catch((error) => {
@@ -49,18 +49,18 @@ router.get('/edit/:id', (req, res) => {
 
 router.get('/:id', (req, res) => {
     console.log('PARAMS', req.params);
-    let beerIndex = Number(req.params.id);
-    //console.log('IS THIS A NUMBER?', beerIndex);
-    Beer.findByPk(beerIndex)
-        .then((beer) => {
-            if (beer) {
-                beer = beer.toJSON();
-                console.log('IS THIS A BEER?', beer);
-                res.render('beers/show', { beer });
+    let wineIndex = Number(req.params.id);
+    //console.log('IS THIS A NUMBER?', wineIndex);
+    Wine.findByPk(wineIndex)
+        .then((wine) => {
+            if (wine) {
+                wine = wine.toJSON();
+                console.log('IS THIS A WINE?', wine);
+                res.render('wines/show', { wine });
             } else {
-                console.log('This beer does not exist');
+                console.log('This wine does not exist');
                 // render a 404 page
-                res.render('404', { message: 'Beer does not exist' });
+                res.render('404', { message: 'Wine does not exist' });
             }
         })
         .catch((error) => {
@@ -74,26 +74,25 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('SUBMITTED FORM', req.body);
-    Beer.create({
+    Wine.create({
         name: req.body.name,
         type: req.body.type,
-        brewery: req.body.brewery,
+        winery: req.body.winery,
         pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGrowler),
-        costPerKeg: Number(req.body.costPerKeg),
+        pricePerBottle: Number(req.body.pricePerBottle),
         abv: Number(req.body.abv),
-        ibu: Number(req.body.ibu),
+        ava: Number(req.body.ava),
         notes: req.body.notes,
         status: req.body.status,
     })
-        .then((newBeer) => {
-            console.log('NEW BEER', newBeer.toJSON());
-            newBeer = newBeer.toJSON();
-            res.redirect(`/beers/${newBeer.id}`);
+        .then((newWine) => {
+            console.log('NEW WINE', newWine.toJSON());
+            newWine = newWine.toJSON();
+            res.redirect(`/wines/${newWine.id}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Beer was not added please try again...' });
+            res.render('404', { message: 'Wine was not added please try again...' });
         });
     // res.redirect()
 });
@@ -103,22 +102,21 @@ router.post('/', (req, res) => {
 router.put('/edit', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let beerIndex = Number(req.params.id);
-    Beer.update({
+    let wineIndex = Number(req.params.id);
+    Wine.update({
         name: req.body.name,
         type: req.body.type,
-        brewery: req.body.type,
+        winery: req.body.winery,
         pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGrowler),
-        costPerKeg: Number(req.body.costPerKeg),
+        pricePerBottle: Number(req.body.pricePerBottle),
         abv: Number(req.body.abv),
-        ibu: Number(req.body.ibu),
+        ava: Number(req.body.ava),
         notes: req.body.notes,
         status: req.body.status,
-    }, { where: { id: beerIndex } })
+    }, { where: { id: wineIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
-            res.redirect(`/beers/${beerIndex}`);
+            res.redirect(`/wines/${wineIndex}`);
         })
         .catch((error) => {
             console.log('ERROR', error);
@@ -131,15 +129,15 @@ router.put('/edit', (req, res) => {
  * */
 router.delete('/:id', (req, res) => {
     console.log('ID HERE', req.params.id);
-    let beerIndex = Number(req.params.id);
-    Beer.destroy({ where: { id: beerIndex } })
+    let wineIndex = Number(req.params.id);
+    Wine.destroy({ where: { id: wineIndex } })
         .then((response) => {
-            console.log('BEER DELETED', response);
-            res.redirect('/beers');
+            console.log('WINE DELETED', response);
+            res.redirect('/wines');
         })
         .catch((error) => {
             console.log('ERROR', error);
-            res.render('404', { message: 'Beer was not deleted, please try again...' });
+            res.render('404', { message: 'Wine was not deleted, please try again...' });
         })
 });
 
