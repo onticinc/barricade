@@ -1,52 +1,84 @@
-<form method="POST" action="/beers/<%= beer.id %>/?_method=PUT">
-  <label for="name">Beer Name:</label>
-  <input id="beerName" type="text" name="name" value="<%= beer.name %>" />
+<div class="container">
+  <form method="POST" action="/beers/<%= beer.id %>/?_method=PUT">
+    <div class="row">
+      <label for="name">Beer Name:</label>
+      <input id="beerName" type="text" name="name" value="<%= beer.name %>" />
+    </div>
+    <div class="row">
+      <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
+      <input id="typeOfBeer" type="text" name="type" value="<%= beer.type %>" />
+    </div>
+    <div class="row">
+      <label for="brewery">Brewery Name:</label>
+      <input
+        id="brewery"
+        type="text"
+        name="brewery"
+        value="<%= beer.brewery %>"
+      />
+    </div>
+    <div class="row">
+      <label for="pricePerGlass">Price Per Glass:</label>
+      <input
+        id="pricePerGlass"
+        type="number"
+        name="pricePerGlass"
+        value="<%= beer.pricePerGlass %>"
+      />
+    </div>
+    <div class="row">
+      <label for="pricePerGrowler">Price Per Growler:</label>
+      <input
+        id="pricePerGrowler"
+        type="number"
+        name="pricePerGrowler"
+        value="<%= beer.pricePerGrowler %>"
+      />
+    </div>
+    <div class="row">
+      <label for="costPerKeg">Cost Per Keg:</label>
+      <input
+        id="costPerKeg"
+        type="number"
+        name="pricePerGrowler"
+        value="<%= beer.pricePerGrowler %>"
+      />
+    </div>
 
-  <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
-  <input id="typeOfBeer" type="text" name="type" value="<%= beer.type %>" />
-
-  <label for="brewery">Brewery Name:</label>
-  <input id="brewery" type="text" name="brewery" value="<%= beer.brewery %>" />
-
-  <label for="pricePerGlass">Price Per Glass:</label>
-  <input
-    id="pricePerGlass"
-    type="number"
-    name="pricePerGlass"
-    value="<%= beer.pricePerGlass %>"
-  />
-
-  <label for="pricePerGrowler">Price Per Growler:</label>
-  <input
-    id="pricePerGrowler"
-    type="number"
-    name="pricePerGrowler"
-    value="<%= beer.pricePerGrowler %>"
-  />
-
-  <label for="costPerKeg">Cost Per Keg:</label>
-  <input
-    id="costPerKeg"
-    type="number"
-    name="pricePerGrowler"
-    value="<%= beer.pricePerGrowler %>"
-  />
-
-  <label for="costPerKeg">ABV%:</label>
-  <input id="beerAbv" type="number" name="beerAbv" value="<%= beer.abv %>" />
-
-  <label for="beerIbu">IBU%:</label>
-  <input id="beerIbu" type="number" name="beerIbu" value="<%= beer.ibu %>" />
-
-  <label for="beerNotes">Notes:</label>
-  <input id="beerNotes" type="text" name="notes" value="<%= beer.notes %>" />
-
-  <label for="beerStatus">Status:</label>
-  <input
-    id="beerStatus"
-    type="text"
-    name="beerStatus"
-    value="<%= beer.status %>"
-  />
-  <input type="submit" />
-</form>
+    <div class="row">
+      <label for="costPerKeg">ABV%:</label>
+      <input
+        id="beerAbv"
+        type="number"
+        name="beerAbv"
+        value="<%= beer.abv %>"
+      />
+    </div>
+    <div class="row">
+      <label for="beerIbu">IBU%:</label>
+      <input
+        id="beerIbu"
+        type="number"
+        name="beerIbu"
+        value="<%= beer.ibu %>"
+      />
+    </div>
+    <div class="row">
+      <label for="beerNotes">Notes:</label>
+      <input
+        id="beerNotes"
+        type="text"
+        name="notes"
+        value="<%= beer.notes %>"
+      />
+    </div>
+    <label for="beerStatus">Status:</label>
+    <input
+      id="beerStatus"
+      type="text"
+      name="beerStatus"
+      value="<%= beer.status %>"
+    />
+    <input type="submit" />
+  </form>
+</div>

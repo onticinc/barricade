@@ -4,52 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Beer</title>
+    <title>Beer's on Tap / Available</title>
 
     <!-- CSS Imports -->
     <%- include('../partials/bootstrap') %>
     <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
   </head>
   <body>
-    <% for( let index = 0; index < beers.length; index++ ) { %> <% let b =
-    beers[index]; %> <% b = b.toJSON() %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row"><%= b.id %></th>
-          <td><%= b.name %></td>
-          <td><%= b.type %></td>
-          <td><%= b.brewery %></td>
-          <td><%= b.pricePerGlass %></td>
-          <td><%= b.pricePerGrowler %></td>
-          <td><%= b.pricePerGrowler %></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p></p>
-    <a href="/beers/<%= b.id %>">View Beer</a>
-    <hr />
-    <% } %>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Brewery</th>
+            <th scope="col">Price Per Glass</th>
+            <th scope="col">Price Per Growler</th>
+            <th scope="col">ABV%</th>
+            <th scope="col">IBU%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let index = 0; index < beers.length; index++ ) { %> <% let b =
+          beers[index]; %> <% b = b.toJSON() %>
+          <tr>
+            <td><%= b.name %></td>
+            <td><%= b.type %></td>
+            <td><%= b.brewery %></td>
+            <td><%= b.pricePerGlass %></td>
+            <td><%= b.pricePerGrowler %></td>
+            <td><%= b.abv %></td>
+            <td><%= b.ibu %></td>
+            <td><%= b.status %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

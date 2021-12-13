@@ -57,6 +57,17 @@
     </form>
 
     <div class="text-end">
+      <% if(true) { %>
+      <li>
+        <a href="/auth/login">Login</a>
+      </li>
+      <li>
+        <a href="/auth/signup">Sign Up</a>
+      </li>
+      <% } else { %>
+      <li><a href="/auth/logout">Logout</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <% } %>
       <button type="button" class="btn btn-light text-dark me-2">Login</button>
       <button type="button" class="btn btn-primary">Sign-up</button>
     </div>

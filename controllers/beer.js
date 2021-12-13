@@ -100,7 +100,7 @@ router.post('/', (req, res) => {
 /**
  * EDIT
  * */
-router.put('/:id', (req, res) => {
+router.put('/edit', (req, res) => {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
     let beerIndex = Number(req.params.id);

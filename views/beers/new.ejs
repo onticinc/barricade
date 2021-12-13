@@ -1,51 +1,53 @@
-<form method="POST" action="/beers">
-  <label for="name">Beer Name:</label>
-  <input id="beerName" type="text" name="name" />
+<div class="container">
+  <form method="POST" action="/beers">
+    <label for="name">Beer Name:</label>
+    <input id="beerName" type="text" name="name" />
 
-  <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
-  <input id="typeOfBeer" type="text" name="type" />
+    <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
+    <input id="typeOfBeer" type="text" name="type" />
 
-  <label for="brewery">Brewery Name:</label>
-  <input id="brewery" type="text" name="brewery" />
+    <label for="brewery">Brewery Name:</label>
+    <input id="brewery" type="text" name="brewery" />
 
-  <label for="pricePerGlass">Price Per Glass:</label>
-  <input
-    id="pricePerGlass"
-    min="0.01"
-    step="0.01"
-    type="number"
-    name="pricePerGlass"
-  />
+    <label for="pricePerGlass">Price Per Glass:</label>
+    <input
+      id="pricePerGlass"
+      min="0.01"
+      step="0.01"
+      type="number"
+      name="pricePerGlass"
+    />
 
-  <label for="pricePerGrowler">Price Per Growler:</label>
-  <input
-    id="pricePerGrowler"
-    min="0.01"
-    step="0.01"
-    type="number"
-    name="pricePerGrowler"
-  />
+    <label for="pricePerGrowler">Price Per Growler:</label>
+    <input
+      id="pricePerGrowler"
+      min="0.01"
+      step="0.01"
+      type="number"
+      name="pricePerGrowler"
+    />
 
-  <label for="costPerKeg">Cost Per Keg:</label>
-  <input
-    id="costPerKeg"
-    min="0.01"
-    step="0.01"
-    type="number"
-    name="costPerKeg"
-  />
+    <label for="costPerKeg">Cost Per Keg:</label>
+    <input
+      id="costPerKeg"
+      min="0.01"
+      step="0.01"
+      type="number"
+      name="costPerKeg"
+    />
 
-  <label for="beerAbv">Beer ABV:</label>
-  <input id="beerAbv" type="number" name="abv" />
+    <label for="beerAbv">Beer ABV:</label>
+    <input id="beerAbv" type="number" name="abv" />
 
-  <label for="beerIbu">Beer IBU:</label>
-  <input id="beerIbu" type="number" name="ibu" />
+    <label for="beerIbu">Beer IBU:</label>
+    <input id="beerIbu" type="number" name="ibu" />
 
-  <label for="status">Status:</label>
-  <input id="beerStatus" type="text" name="status" />
+    <label for="status">Status:</label>
+    <input id="beerStatus" type="text" name="status" />
 
-  <label for="beerNotes">Notes:</label>
-  <input id="beerNotes" type="text" name="notes" />
+    <label for="beerNotes">Notes:</label>
+    <input id="beerNotes" type="text" name="notes" />
 
-  <input type="submit" />
-</form>
+    <input type="submit" />
+  </form>
+</div>
