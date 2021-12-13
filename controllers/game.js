@@ -88,8 +88,6 @@ router.post('/high-score', isLoggedIn, function (req, res) {
         })
 });
 
-
-
 // GET to Edit page
 router.get('/edit/:id', (req, res) => {
     let gameIndex = Number(req.params.id);

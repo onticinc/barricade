@@ -11,21 +11,26 @@
     <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
   </head>
   <body>
+    <% for( let index = 0; index < beers.length; index++ ) { %> <% let b =
+    beers[index]; %> <% b = b.toJSON() %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
           <th scope="col">Last</th>
           <th scope="col">Handle</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <th scope="row"><%= b.id %></th>
+          <td><%= b.name %></td>
+          <td><%= b.type %></td>
+          <td><%= b.brewery %></td>
+          <td><%= b.pricePerGlass %></td>
+          <td><%= b.pricePerGrowler %></td>
+          <td><%= b.pricePerGrowler %></td>
         </tr>
         <tr>
           <th scope="row">2</th>
@@ -42,9 +47,7 @@
       </tbody>
     </table>
 
-    <% for( let index = 0; index < beers.length; index++ ) { %> <% let b =
-    beers[index]; %> <% b = b.toJSON() %>
-    <p><%= b.name %></p>
+    <p></p>
     <a href="/beers/<%= b.id %>">View Beer</a>
     <hr />
     <% } %>
