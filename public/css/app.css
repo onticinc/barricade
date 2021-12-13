@@ -229,3 +229,11 @@ body {
 .modal-tour .modal-dialog {
   width: 380px;
 }
+
+.m-t-15 {
+  margin-top: 15px;
+}
+
+.m-b-15 {
+  margin-bottom: 15px;
+}

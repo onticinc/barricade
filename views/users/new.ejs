@@ -1,24 +1,85 @@
-<form method="POST" action="/users">
-  <label for="firstName">First Name</label>
-  <input type="text" name="firstName" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Users</title>
 
-  <label for="lastName">Last Name</label>
-  <input id="lastName" type="text" name="lastName" />
+    <!-- CSS Imports -->
+    <%- include('../partials/bootstrap') %>
+    <link rel="stylesheet" type="text/css" href="../../public/css/app.css" />
+  </head>
 
-  <label for="initials">Initials</label>
-  <input id="tracks" type="text" name="tracks" />
+  <div
+    class="modal modal-signin position-static d-block bg-secondary py-5"
+    tabindex="-1"
+    role="dialog"
+    id="modalSignin"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-5 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <div class="container">
+            <h1>Please Add New User</h1>
+          </div>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <form method="POST" action="/users">
+            <div class="container">
+              <div class="row">
+                <label for="firstName">First Name</label>
+              </div>
+              <input type="text" name="firstName" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="lastName" style="margin-top: 15px">Last Name</label>
+              </div>
+              <input id="lastName" type="text" name="lastName" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="initials" style="margin-top: 15px">Initials</label>
+              </div>
+              <input id="tracks" type="text" name="tracks" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="phoneNumber" style="margin-top: 15px"
+                  >Phone Number:</label
+                >
+              </div>
+              <input id="phoneNumber" type="text" name="phoneNumber" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="email" style="margin-top: 15px"> Email:</label>
+              </div>
+              <input id="email" type="text" name="email" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="password" style="margin-top: 15px">Password:</label>
+              </div>
+              <input id="password" type="text" name="password" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <label for="userLevel" style="margin-top: 15px"
+                  >User Level:</label
+                >
+              </div>
+              <input id="userLevel" type="text" name="userLevel" />
+            </div>
+            <div class="container">
+              <input class="m-t-15" type="submit" style="margin-top: 15px" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <label for="phoneNumber">Phone Number:</label>
-  <input id="phoneNumber" type="text" name="phoneNumber" />
-
-  <label for="email"> Email:</label>
-  <input id="email" type="text" name="email" />
-
-  <label for="password">Password:</label>
-  <input id="password" type="text" name="password" />
-
-  <label for="userLevel">User Level:</label>
-  <input id="userLevel" type="text" name="userLevel" />
-
-  <input type="submit" />
-</form>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</html>
