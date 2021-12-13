@@ -1,24 +1,46 @@
-<form method="POST" action="/games">
-  <label for="name">Game Name:</label>
-  <input type="text" name="name" />
+<div
+  class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSignin"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2">Please Log In.</h2>
+      </div>
 
-  <label for="model">Game Model:</label>
-  <input type="text" name="model" />
+      <div class="modal-body p-5 pt-0">
+        <form method="POST" action="/games">
+          <label for="name">Game Name:</label>
+          <input type="text" name="name" />
+        
+          <label for="model">Game Model:</label>
+          <input type="text" name="model" />
+        
+          <label for="manufacturer">Game Manufacturer:</label>
+          <input type="text" name="manufacturer" />
+        
+          <label for="serialNumber">Game Notes:</label>
+          <input type="text" name="serialNumber" />
+        
+          <label for="picture">Game Picture:</label>
+          <input type="text" name="picture" />
+        
+          <label for="status">Game Status:</label>
+          <input type="text" name="status" />
+        
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <label for="manufacturer">Game Manufacturer:</label>
-  <input type="text" name="manufacturer" />
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-  <label for="serialNumber">Game Notes:</label>
-  <input type="text" name="serialNumber" />
 
-  <label for="picture">Game Picture:</label>
-  <input type="file" class="form-control-file" name="picture" />
 
-  <label for="highScore">Game High Score:</label>
-  <input type="text" name="highScore" />
 
-  <label for="status">Game Status:</label>
-  <input type="text" name="status" />
 
-  <input type="submit" />
-</form>
+
