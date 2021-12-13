@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // STATIC FILES
 app.use(express.static(__dirname + '/public'));
+app.use(Express.static(__dirname + '/public'));
 // app.use('/css', express.static(__dirname + 'public/css/app'))
 
 

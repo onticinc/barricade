@@ -1,66 +1,59 @@
-
-    <div
-      class="modal modal-sheet position-static d-block bg-secondary py-5"
-      tabindex="-1"
-      role="dialog"
-      id="modalSheet"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content rounded-6 shadow">
-          <div class="modal-header border-bottom-0">
-            <div class="container">
-              <h1 class="modal-title"><%= game.name %></h1>
-            </div>
-          </div>
-          <div class="modal-body py-0">
-            <div class="container">
-              <hr class="my-4" />
-              <h5>Model:</h5>
-              <h2><%= game.model %></h2>
-            </div>
-            <div class="container">
-              <hr class="my-4" />
-              <h5>Manufacturer:</h5>
-              <h3><%= game.manufacturer %></h3>
-            </div>
-            <div class="container">
-              <hr class="my-4" />
-              <h5>Notes:</h5>
-              <h4><%= game.notes %></h4>
-            </div>
-            <div class="container">
-              <hr class="my-4" />
-              <h5>Game Picture:</h5>
-              <img
-                src="<%= game.picture %>"
-                alt="game image"
-                style="width: 200px"
-              />
-            </div>
-            <div class="container">
-              <hr class="my-4" />
-              <label for="game-high-score">Game High Score:</label>
-              <h4><%= game.highScore %></h4>
-            </div>
-            <div class="container">
-              <hr class="my-4" />
-              <label for="game-status">Game Status:</label>
-            </div>
-            <div class="container">
-              <h4><%= game.status %></h4>
-              <hr class="my-4" />
-            </div>
-            
-          </div>
-          <div class="modal-footer flex-column border-top-0">
-            <!-- <form method="POST" action="/games/<%= game.id %>/?_method=DELETE">
-            <input type="submit" value="Delete Game" />
-          </form> -->
-            <!-- <a href="/games/edit/<%= game.id %>">Edit</a> -->
-            <a href="/games">All Games</a>
-          </div>
+<div
+  class="modal modal-sheet position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSheet"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header border-bottom-0">
+        <div class="container">
+          <h1 class="modal-title"><%= game.name %></h1>
         </div>
       </div>
+      <div class="modal-body py-0">
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Model:</h5>
+          <h2><%= game.model %></h2>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Manufacturer:</h5>
+          <h3><%= game.manufacturer %></h3>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Notes:</h5>
+          <h4><%= game.notes %></h4>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Game Picture:</h5>
+          <img
+            src="<%= game.picture %>"
+            alt="game image"
+            style="width: 200px"
+          />
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Game High Score:</h5>
+          <h4><%= game.highScore %></h4>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Game Status:</h5>
+          <h4><%= game.status %></h4>
+        </div>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+        <!-- <form method="POST" action="/games/<%= game.id %>/?_method=DELETE">
+            <input type="submit" value="Delete Game" />
+          </form> -->
+        <!-- <a href="/games/edit/<%= game.id %>">Edit</a> -->
+        <a href="/games">All Games</a>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
