@@ -1,18 +1,54 @@
-<form action="/auth/signup" method="POST">
-  <label for="firstName">First Name:</label>
-  <input id="new-first-name" type="text" name="firstName" required />
+<div
+  class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSignin"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0" style="text-align: center">Please Log In.</h2>
+      </div>
 
-  <label for="lastName">Last Name:</label>
-  <input id="new-last-name" type="text" name="lastName" required />
+      <div class="modal-body p-5 pt-0">
+        <form action="/auth/signup" method="POST">
+          <div class="container">
+            <div class="row">
+              <label for="firstName">First Name:</label>
+            </div>
+            <input id="new-first-name" type="text" name="firstName" required />
+          </div>
+          <div class="container m-t-15">
+            <div class="row">
+              <label for="lastName">Last Name:</label>
+            </div>
+            <input id="new-last-name" type="text" name="lastName" required />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="initials">Initials:</label>
+            </div>
+            <input id="new-initials" type="text" name="initials" required />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="new-email">Email</label>
+            </div>
+            <input id="new-email" type="email" name="email" required />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="new-password">Password</label>
+            </div>
+            <input id="new-password" type="password" name="password" required />
+          </div>
+          <div class="container">
+            <input type="submit" value="Sign up" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <label for="initials">Initials:</label>
-  <input id="new-initials" type="text" name="initials" required />
-
-  <label for="new-email">Email</label>
-  <input id="new-email" type="email" name="email" required />
-
-  <label for="new-password">Password</label>
-  <input id="new-password" type="password" name="password" required />
-
-  <input type="submit" value="Sign up" />
-</form>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

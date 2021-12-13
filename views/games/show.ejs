@@ -22,22 +22,22 @@
             <hr class="my-4" />
             <h5>Game Model:</h5>
             <h2><%= game.model %></h2>
-
+            <hr class="my-4" />
             <label for="game-manufacturer">Game Manufacturer:</label>
             <h3><%= game.manufacturer %></h3>
-
+            <hr class="my-4" />
             <label for="game-serialNumber">Game Notes:</label>
             <h4><%= game.serialNumber %></h4>
-
+            <hr class="my-4" />
             <label for="game-picture">Game Picture:</label>
             <img src="<%= game.picture %>" alt="game image" />
-
+            <hr class="my-4" />
             <label for="game-high-score">Game High Score:</label>
             <h4><%= game.highScore %></h4>
-
+            <hr class="my-4" />
             <label for="game-status">Game Status:</label>
             <h4><%= game.status %></h4>
-
+            <hr class="my-4" />
             <a href="/games/edit/<%= game.id %>">Edit</a>
           </div>
           <div class="modal-footer flex-column border-top-0">
