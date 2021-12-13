@@ -81,7 +81,7 @@ router.post('/', (req, res) => {
         pricePerGlass: Number(req.body.pricePerGlass),
         pricePerBottle: Number(req.body.pricePerBottle),
         abv: Number(req.body.abv),
-        ava: Number(req.body.ava),
+        ava: req.body.ava,
         notes: req.body.notes,
         status: req.body.status,
     })
@@ -110,7 +110,7 @@ router.put('/edit', (req, res) => {
         pricePerGlass: Number(req.body.pricePerGlass),
         pricePerBottle: Number(req.body.pricePerBottle),
         abv: Number(req.body.abv),
-        ava: Number(req.body.ava),
+        ava: req.body.ava,
         notes: req.body.notes,
         status: req.body.status,
     }, { where: { id: wineIndex } })

@@ -1,15 +1,98 @@
-<form method="POST" action="/wines">
-  <label for="name">Name</label>
-  <input type="text" name="name" />
+<div
+  class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSignin"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2">Enter New Wine.</h2>
+      </div>
 
-  <label for="length">Length</label>
-  <input id="length" type="text" name="length" />
+      <div class="modal-body p-5 pt-0">
+        <form method="POST" action="/wines">
+          <div class="container">
+            <div class="row">
+              <label for="name">Name:</label>
+            </div>
+            <input type="text" name="name" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="type">Type:</label>
+            </div>
+            <input type="text" name="type" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="winery">Winery:</label>
+            </div>
+            <input type="text" name="winery" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerGlass">Price Per Glass:</label>
+            </div>
+            <input type="text" name="pricePerGlass" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerBottle">Price Per Bottle:</label>
+            </div>
+            <input type="text" name="pricePerBottle" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="abv">ABV%:</label>
+            </div>
+            <input type="text" name="abv" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="ava">AVA%:</label>
+            </div>
+            <input type="text" name="ava" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="abv">ABV%:</label>
+            </div>
+            <input type="text" name="abv" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="notes">Notes:</label>
+            </div>
+            <input type="text" name="notes" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="status">Status:</label>
+            </div>
+            <input type="text" name="status" />
+          </div>
+          <div class="container">
+            <input type="submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <label for="tracks">Tracks</label>
-  <input id="tracks" type="text" name="tracks" />
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-  <label for="year">Year</label>
-  <input id="year" type="text" name="year" />
 
-  <input type="submit" />
-</form>
+
+
+
+
+
+
+
+
+
+
+
+
