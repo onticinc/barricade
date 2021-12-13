@@ -4,14 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Albums</title>
+    <title>All Games</title>
+
+    <!-- CSS Imports -->
+    <%- include('../partials/bootstrap') %>
+    <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
   </head>
   <body>
-    <% for( let index = 0; index < game.length; index++ ) { %> <% let a =
-    game[index]; %> <% a = a.toJSON() %>
-    <p><%= a.name %></p>
-    <a href="/games/<%= a.id %>">View Games</a>
-    <hr />
-    <% } %>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Model</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Game Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let index = 0; index < game.length; index++ ) { %> <% let a =
+          game[index]; %> <% a = a.toJSON() %>
+          <tr>
+            <td><%= a.name %></td>
+            <td><%= a.model %></td>
+            <td><%= a.manufacturer %></td>
+            <td><a href="/games/<%= a.id %>">View Game</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

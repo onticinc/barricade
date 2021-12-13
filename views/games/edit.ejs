@@ -1,24 +1,53 @@
-<form method="POST" action="/games/<%= game.id %>/?_method=PUT">
-  <label for="name">Game Name:</label>
-  <input type="text" name="name" value="<%= game.name %>" />
-
-  <label for="model">Game Model:</label>
-  <input type="text" name="model" value="<%= game.model %>" />
-
-  <label for="manufacturer">Game Manufacturer:</label>
-  <input type="text" name="manufacturer" value="<%= game.manufacturer %>" />
-
-  <label for="serialNumber">Game Notes:</label>
-  <input type="text" name="serialNumber" value="<%= game.serialNumber %>" />
-
-  <label for="picture">Game Picture:</label>
-  <input type="file" class="form-control-file" />
-
-  <label for="highScore">Game High Score:</label>
-  <input type="text" name="highScore" value="<%= game.highScore %>" />
-
-  <label for="status">Game Status:</label>
-  <input type="text" name="status" value="<%= game.status %>" />
-
-  <input type="submit" />
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <div class="container">
+        <form method="POST" action="/games/<%= game.id %>/?_method=PUT">
+          <div class="row">
+            <div class="container">
+              <label for="name">Game Name:</label>
+              <input type="text" name="name" value="<%= game.name %>" />
+            </div>
+          </div>
+          <div class="row m-t-15">
+            <label for="model">Game Model:</label>
+            <input type="text" name="model" value="<%= game.model %>" />
+          </div>
+          <div class="row">
+            <label for="manufacturer">Game Manufacturer:</label>
+            <input
+              type="text"
+              name="manufacturer"
+              value="<%= game.manufacturer %>"
+            />
+          </div>
+          <div class="row">
+            <div class="container">
+              <label for="serialNumber">Game Notes:</label>
+              <input
+                type="text"
+                name="serialNumber"
+                value="<%= game.serialNumber %>"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <label for="picture">Game Picture:</label>
+            <input type="file" class="form-control-file" />
+          </div>
+          <div class="row">
+            <label for="highScore">Game High Score:</label>
+            <input type="text" name="highScore" value="<%= game.highScore %>" />
+          </div>
+          <div class="row">
+            <label for="status">Game Status:</label>
+            <input type="text" name="status" value="<%= game.status %>" />
+          </div>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+</div>

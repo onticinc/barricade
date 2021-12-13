@@ -144,7 +144,7 @@ router.post('/', (req, res) => {
         notes: req.body.notes,
         picture: req.body.picture,
         highScore: Number(req.body.highScore),
-        working: req.body.working,
+        status: req.body.status,
     })
 
         .then((newGame) => {
@@ -161,21 +161,20 @@ router.post('/', (req, res) => {
 /**
  * EDIT
  * */
+
 router.put('/:id', (req, res) => {
-    console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
-    console.log('HERE IS THE ID', req.params.id);
+    //console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
+    //console.log('HERE IS THE ID', req.params.id);
     let gameIndex = Number(req.params.id);
     Game.update({
         name: req.body.name,
-        type: req.body.type,
-        brewery: req.body.type,
-        pricePerGlass: Number(req.body.pricePerGlass),
-        pricePerGrowler: Number(req.body.pricePerGlass),
-        costPerKeg: Number(req.body.costPerKeg),
-        abv: Number(req.body.abv),
-        ibu: Number(req.body.ibu),
+        model: req.body.model,
+        manufacturer: req.body.manufacturer,
+        serialNumber: req.body.serialNumber,
         notes: req.body.notes,
-        working: Number(req.body.working),
+        picture: req.body.picture,
+        highScore: Number(req.body.highScore),
+        status: req.body.status,
     }, { where: { id: gameIndex } })
         .then((response) => {
             console.log('AFTER UPDATE', response);
@@ -186,7 +185,6 @@ router.put('/:id', (req, res) => {
             res.render('404', { message: 'Update was not successful. Please try again.' })
         });
 });
-
 /**
  * DELETE
  * */
