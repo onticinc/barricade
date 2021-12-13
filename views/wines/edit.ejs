@@ -1,15 +1,66 @@
-<form method="POST" action="/albums/<%= album.id %>/?_method=PUT">
-  <label for="title">Title</label>
-  <input type="text" name="title" value="<%= album.title %>" />
+<div
+  class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSignin"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <div class="container">
+          <h1>Enter New Wine</h1>
+        </div>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form method="POST" action="/wines/<%= wine.id %>/?_method=PUT">
+          <div class="container">
+            <div class="row">
+              <label for="name">Name:</label>
+            </div>
+            <input type="text" name="name" value="<%= wine.name %>" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="type">Type:</label>
+            </div>
+            <input id="type" type="text" value="<%= wine.type %>" />
+          </div>
+          <div class="container">
+            <label for="winery">Winery</label>
+            <input
+              id="tracks"
+              type="text"
+              name="winery"
+              value="<%= wine.winery %>"
+            />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerGlass">Price Per Glass:</label>
+            </div>
+            <input
+              id="pricePerGlass"
+              type="text"
+              name="year"
+              value="<%= wine.pricePerGlass %>"
+            />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerBottle">Price Per Bottle:</label>
+            </div>
+            <input
+              id="pricePerBottle"
+              type="text"
+              name="year"
+              value="<%= wine.pricePerBottle %>"
+            />
+          </div>
 
-  <label for="length">Length</label>
-  <input id="length" type="text" name="length" value="<%= album.length %>" />
-
-  <label for="tracks">Tracks</label>
-  <input id="tracks" type="text" name="tracks" value="<%= album.tracks %>" />
-
-  <label for="year">Year</label>
-  <input id="year" type="text" name="year" value="<%= album.year %>" />
-
-  <input type="submit" />
-</form>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
