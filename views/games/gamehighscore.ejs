@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Games</title>
+
+    <!-- CSS Imports -->
+    <%- include('../partials/bootstrap') %>
+    <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
+  </head>
+  <body>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Initials</th>
+            <th scope="col">Score</th>
+            <th scope="col">Game Info</th>
+          </tr>
+        </thead>
+        <tbody id="lecturesTableData">
+          <% if(data.length){ %> <% for(let i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%=data[i].school%></td>
+            <td><%=data[i].location%></td>
+            <td><%=data[i].class%></td>
+            <td><%=data[i].subject%></td>
+            <td><%=data[i].teacher_name%></td>
+            <td><%=data[i].date%></td>
+            <td><%=data[i].start_time%></td>
+            <td><%=data[i].end_time%></td>
+            <td><%=data[i].additional_notes%></td>
+          </tr>
+          <% } %> <% }else{ %>
+          <tr>
+            <td>No Lessons</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<script>
+  const tbody = document.getElementById("lecturesTableData");
+
+  // Helper function for sorting on a given column, with a given comparator
+  function tableSort(colNum, cmp) {
+    let rows = [...tbody.rows];
+    rows
+      .sort((a, b) =>
+        cmp(a.cells[colNum].textContent, b.cells[colNum].textContent)
+      )
+      .map((row) => tbody.appendChild(row));
+  }
+
+  function sortSchoolAscending() {
+    tableSort(0, (a, b) => a - b); // assuming that school column has number representations
+  }
+
+  function sortSchoolDescending() {
+    tableSort(0, (a, b) => b - a); // assuming that school column has number representations
+  }
+
+  function sortLocationAscending() {
+    tableSort(1, (a, b) => a.localeCompare(b)); // assuming that location column has strings
+  }
+
+  function sortLocationDescending() {
+    tableSort(1, (a, b) => b.localeCompare(a)); // assuming that location column has strings
+  }
+</script>
