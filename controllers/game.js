@@ -143,7 +143,6 @@ router.post('/', (req, res) => {
         serialNumber: req.body.serialNumber,
         notes: req.body.notes,
         picture: req.body.picture,
-        highScore: Number(req.body.highScore),
         status: req.body.status,
     })
 

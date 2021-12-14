@@ -7,30 +7,54 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-5 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h1>Please Log In.</h1>
+        <img src="/images/barricade_pacman.png" style="width: 100%" />
       </div>
-
       <div class="modal-body p-5 pt-0">
+        <h1>Add New Game</h1>
         <form method="POST" action="/games">
-          <label for="name" style="margin-top: 15px">Game Name:</label>
-          <input type="text" name="name" />
+          <div class="container">
+            <div class="row">
+              <label for="name" style="margin-top: 15px">Game Name:</label>
+            </div>
+            <input type="text" name="name" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="model" style="margin-top: 15px">Game Model:</label>
+            </div>
+            <input type="text" name="model" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="manufacturer" style="margin-top: 15px"
+                >Game Manufacturer:</label
+              >
+            </div>
+            <input type="text" name="manufacturer" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="serialNumber" style="margin-top: 15px"
+                >Serial Number:</label
+              >
+            </div>
+            <input type="text" name="serialNumber" />
+          </div>
 
-          <label for="model" style="margin-top: 15px">Game Model:</label>
-          <input type="text" name="model" />
-
-          <label for="manufacturer" style="margin-top: 15px"
-            >Game Manufacturer:</label
-          >
-          <input type="text" name="manufacturer" />
-
-          <label for="serialNumber" style="margin-top: 15px">Game Notes:</label>
-          <input type="text" name="serialNumber" />
-
-          <label for="picture" style="margin-top: 15px">Game Picture:</label>
-          <input type="text" name="picture" />
-
-          <label for="status" style="margin-top: 15px">Game Status:</label>
-          <input type="text" name="status" />
+          <div class="container">
+            <div class="row">
+              <label for="picture" style="margin-top: 15px"
+                >Game Picture:</label
+              >
+            </div>
+            <input type="text" name="picture" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="status" style="margin-top: 15px">Game Status:</label>
+            </div>
+            <input type="text" name="status" />
+          </div>
 
           <input type="submit" style="margin-top: 15px" />
         </form>
