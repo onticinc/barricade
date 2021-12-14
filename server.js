@@ -16,7 +16,6 @@ console.log(SECRET_SESSION);
 app.set('view engine', 'ejs');
 
 app.use(methodOverride('_method'));
-app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 
 // STATIC FILES
@@ -35,7 +34,6 @@ app.use(session({
 
 
 // flash middleware
-app.use(flash());
 app.use(flash());
 
 app.use(passport.initialize());
