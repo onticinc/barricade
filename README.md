@@ -352,3 +352,31 @@ router.post("/high-score", isLoggedIn, function (req, res) {
     });
 });
 ```
+
+### EJS GAME TABLE
+
+```html
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Model</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Game Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for( let index = 0; index < game.length; index++ ) { %> <% let a =
+      game[index]; %> <% a = a.toJSON() %>
+      <tr>
+        <td><%= a.name %></td>
+        <td><%= a.model %></td>
+        <td><%= a.manufacturer %></td>
+        <td><a href="/games/<%= a.id %>">View Game</a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+```
