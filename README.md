@@ -69,8 +69,8 @@ Also manages Beer and Wine inventory and Upcoming Events.
 | winery         | String    |                                    |
 | pricePerGlass  | String    |                                    |
 | pricePerBottle | String    |                                    |
-| abv            | Date/Time |                                    |
-| ava            | String    |                                    |
+| abv            | Integer   |                                    |
+| ava            | Integer   |                                    |
 | notes          | String    |                                    |
 | createdAt      | Date      | Auto-generated                     |
 | updatedAt      | Date      | Auto-generated                     |
