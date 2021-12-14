@@ -1,8 +1,13 @@
 # Barricade App
 
+Control Game information and customer high scores for Barricade in Pocatello Idaho.
+
+Also manages Beer and Wine inventory and Upcoming Events.
+
 # External API
 
 https://api.chucknorris.io/
+Random Chuck Norris Jokes
 
 ## Express authentication template using Passport + Flash messages + custom middleware
 
@@ -29,7 +34,7 @@ https://api.chucknorris.io/
 | createdAt   | Date            | Auto-generated                     |
 | updatedAt   | Date            | Auto-generated                     |
 
-### Game Model
+### Game
 
 | Column Name  | Data Type | Notes                              |
 | ------------ | --------- | ---------------------------------- |
@@ -46,18 +51,34 @@ https://api.chucknorris.io/
 
 ### Event Model
 
-| Column Name  | Data Type | Notes                              |
-| ------------ | --------- | ---------------------------------- |
-| id           | Integer   | Serial Primary Key, Auto-generated |
-| name         | String    | Must be provided                   |
-| model        | String    |                                    |
-| manufacturer | String    |                                    |
-| serialNumber | String    |                                    |
-| notes        | String    |                                    |
-| picture      | String    |                                    |
-| highScore    | String    |                                    |
-| createdAt    | Date      | Auto-generated                     |
-| updatedAt    | Date      | Auto-generated                     |
+| Column Name | Data Type | Notes                              |
+| ----------- | --------- | ---------------------------------- |
+| id          | Integer   | Serial Primary Key, Auto-generated |
+| name        | String    | Must be provided                   |
+| description | String    |                                    |
+| link        | String    |                                    |
+| cost        | String    |                                    |
+| picture     | String    |                                    |
+| date        | Date/Time |                                    |
+| notes       | String    |                                    |
+| createdAt   | Date      | Auto-generated                     |
+| updatedAt   | Date      | Auto-generated                     |
+
+### Wine Model
+
+| Column Name    | Data Type | Notes                              |
+| -------------- | --------- | ---------------------------------- |
+| id             | Integer   | Serial Primary Key, Auto-generated |
+| name           | String    | Must be provided                   |
+| type           | String    |                                    |
+| winery         | String    |                                    |
+| pricePerGlass  | String    |                                    |
+| pricePerBottle | String    |                                    |
+| abv            | Date/Time |                                    |
+| ava            | String    |                                    |
+| notes          | String    |                                    |
+| createdAt      | Date      | Auto-generated                     |
+| updatedAt      | Date      | Auto-generated                     |
 
 ### Default Routes
 
@@ -103,6 +124,247 @@ File Structure
 ├── README.md
 ├── server.js
 
+````
+
+For general app setup:
+
+- "dotenv": "^8.6.0"
+- "ejs": "^3.1.6"
+- "express": "^4.17.1"
+- "express-ejs-layouts": "^2.5.0"
+- "express-session": "^1.17.1"
+- "method-override": "^3.0.0"
+
+
+For login auth/encryption:
+
+- "bcrypt": "^5.0.1"
+- "connect-flash": "^0.1.1"
+- "passport": "^0.4.1"
+- "passport-local": "^1.0.0"
+
+### Resources used
+
+
+
+# Code Snippets
+
+## CRUD for Barricade
+
+### Create / Post Route
+
+```js
+router.post("/", (req, res) => {
+  console.log("SUBMITTED FORM", req.body);
+  Game.create({
+    name: req.body.name,
+    model: req.body.model,
+    manufacturer: req.body.manufacturer,
+    serialNumber: req.body.serialNumber,
+    notes: req.body.notes,
+    picture: req.body.picture,
+    status: req.body.status,
+  })
+
+    .then((newGame) => {
+      console.log("NEW GAME", newGame.toJSON());
+      newGame = newGame.toJSON();
+      res.redirect(`/games/${newGame.id}`);
+    })
+    .catch((error) => {
+      console.log("ERROR", error);
+      res.render("404", { message: "Game was not added please try again..." });
+    });
+});
+````
+
+### Read
+
+```js
+// Game Show Route
+router.get("/:id", (req, res) => {
+  console.log("PARAMS", req.params);
+  let gameIndex = Number(req.params.id);
+  console.log("IS THIS A NUMBER?", gameIndex);
+  Game.findByPk(gameIndex)
+    .then((game) => {
+      if (game) {
+        game = game.toJSON();
+        //console.log('IS THIS A GAME?', game);
+        res.render("games/show", { game });
+      } else {
+        console.log("This game does not exist");
+        // render a 404 page
+        res.render("404", { message: "Game does not exist" });
+      }
+    })
+    .catch((error) => {
+      console.log("ERROR", error);
+    });
+});
 ```
 
+### Update
+
+```js
+router.get("/edit/:id", (req, res) => {
+  let gameIndex = Number(req.params.id);
+  Game.findByPk(gameIndex)
+    .then((game) => {
+      if (game) {
+        game = game.toJSON();
+        res.render("games/edit", { game });
+      } else {
+        res.render("404", { message: "Game does not exist" });
+      }
+    })
+    .catch((error) => {
+      console.log("ERROR", error);
+    });
+});
+```
+
+### Delete
+
+```js
+router.delete("/:id", (req, res) => {
+  console.log("ID HERE", req.params.id);
+  let gameIndex = Number(req.params.id);
+  Game.destroy({ where: { id: gameIndex } })
+    .then((response) => {
+      console.log("GAME DELETED", response);
+      res.redirect("/games");
+    })
+    .catch((error) => {
+      console.log("ERROR", error);
+      res.render("404", {
+        message: "Game was not deleted, please try again...",
+      });
+    });
+});
+```
+
+````
+
+
+### High Score Route
+
+```js
+// high score route
+router.post("/high-score", isLoggedIn, function (req, res) {
+  console.log("... this is the user submittitng for highscore ...");
+  console.log(req.user); // user object for the logged in user.
+  console.log(req.body); // object with submitted data
+  console.log(req.body.game.toLowerCase());
+  let gameName = req.body.game.toLowerCase();
+  Game.findOne({ where: { name: gameName } })
+    .then(function (game) {
+      game
+        .createHighScore({
+          userId: req.user.id,
+          initials: req.body.initials,
+          highScore: req.body.highScore,
+        })
+        .then(function (newHighScore) {
+          console.log("this is the high score", newHighScore.toJSON());
+          res.redirect(`/games/${newHighScore.gameId}`);
+        })
+        .catch(function (error) {
+          console.log("this is an error", error);
+          res.redirect("/games/high-score/new");
+        });
+    })
+    .catch(function (error) {
+      console.log("this is an error", error);
+      res.redirect("/games/high-score/new");
+    });
+});
+````
+
+### Update
+
+```js
+
+```
+
+### Email Integration
+
+```js
+let transporter = mailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD,
+      clientId: process.env.OAUTH_CLIENTID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN
+    }
+  });
+router.post('/favorite/:id', isLoggedIn, async (req,res)=>{
+    const thisGallery = await db.gallery.findOne({
+        where: {userId: req.user.id}
+    })
+    const thisWork = await db.work.findOne({
+        where: {id: req.params.id},
+        include: [db.user]
+    })
+    thisGallery.addWork(thisWork)
+    let emailRecipient = thisWork.user.dataValues.email
+    let mailOptions = {
+        from: 'YOUR-EMAIL@YOUR-DOMAIN.COM',
+        to: emailRecipient,
+        subject: 'GalleryLink - Your work was added to favorites!',
+        text: `Congrats! ${thisGallery.name} added your piece, ${thisWork.title}, to their collection of favorites.`
+    }
+    transporter.sendMail(mailOptions, function(err, data) {
+        if (err) {
+          console.log("Error " + err);
+        } else {
+          console.log("Email sent successfully");
+        }
+      });
+```
+
+### Search
+
+```js
+router.get("/results", isLoggedIn, async (req, res) => {
+  let results = [];
+  let target = req.query.target;
+  if (req.query.search == "gallery") {
+    results = await db.gallery.findAll({
+      where: {
+        [target]: {
+          [Op.iLike]: `%${req.query.query}%`,
+        },
+      },
+    });
+  } else if (req.query.search == "artist") {
+    results = await db.artist.findAll({
+      where: {
+        [target]: {
+          [Op.iLike]: `%${req.query.query}%`,
+        },
+      },
+    });
+  } else {
+    if (target == "yearCreated") {
+      results = await db.work.findAll({
+        where: {
+          yearCreated: req.query.query,
+        },
+      });
+    } else {
+      results = await db.work.findAll({
+        where: {
+          [target]: {
+            [Op.iLike]: `%${req.query.query}%`,
+          },
+        },
+      });
+    }
+  }
+  res.render("search/results", { searchResults: results });
+});
 ```
