@@ -8,7 +8,7 @@
     <div class="modal-content rounded-5 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
         <div class="container">
-          <h1>Enter New Wine</h1>
+          <h1>Edit Wine</h1>
         </div>
       </div>
       <div class="modal-body p-5 pt-0">
@@ -41,7 +41,7 @@
             <input
               id="pricePerGlass"
               type="text"
-              name="year"
+              name="pricePerGlass"
               value="<%= wine.pricePerGlass %>"
             />
           </div>
@@ -52,11 +52,28 @@
             <input
               id="pricePerBottle"
               type="text"
-              name="year"
+              name="pricePerBottle"
               value="<%= wine.pricePerBottle %>"
             />
           </div>
-
+          <div class="container">
+            <div class="row">
+              <label for="abv">ABV:</label>
+            </div>
+            <input id="abv" type="text" name="abv" value="<%= wine.abv%>" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="ava">AVA:</label>
+            </div>
+            <input id="ava" type="text" name="ava" value="<%= wine.abv%>" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="ava">AVA:</label>
+            </div>
+            <input id="ava" type="text" name="ava" value="<%= wine.abv%>" />
+          </div>
           <input type="submit" />
         </form>
       </div>
