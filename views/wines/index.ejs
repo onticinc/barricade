@@ -9,12 +9,28 @@
     <%- include('../partials/bootstrap') %>
     <link rel="stylesheet" type="text/css" href="/public/css/app.css" />
   </head>
-  <body>
-    <% for( let index = 0; index < wines.length; index++ ) { %> <% let a =
-    wines[index]; %> <% a = a.toJSON() %>
-    <p><%= a.name %></p>
-    <a href="/wines/<%= a.id %>">View Wines</a>
-    <hr />
-    <% } %>
-  </body>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Winery</th>
+          <th scope="col">View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for( let index = 0; index < wines.length; index++ ) { %> <% let a =
+        wines[index]; %> <% a = a.toJSON() %>
+        <tr>
+          <td><%= a.name %></td>
+          <td><%= a.type %></td>
+          <td><%= a.winery %></td>
+          <td><a href="/wines/<%= a.id %>">View</a></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
 </html>

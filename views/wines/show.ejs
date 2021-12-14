@@ -1,21 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify 2.0</title>
-  </head>
-  <body>
-    <a href="/albums">View All Albums</a>
-    <h1><%= album.title %></h1>
-    <h2><%= album.year %></h2>
-    <h3><%= album.length %></h3>
-    <h4><%= album.tracks %></h4>
-    <a href="/albums/edit/<%= album.id %>">Edit</a>
-
-    <form method="POST" action="/albums/<%= album.id %>/?_method=DELETE">
-      <input type="submit" value="Delete Album" />
-    </form>
-  </body>
-</html>
+<div
+  class="modal modal-sheet position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSheet"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header border-bottom-0">
+        <div class="container">
+          <img src="/images/barricade_pacman.png" style="width: 100%" />
+          <h1 class="modal-title"><%= wine.name %></h1>
+        </div>
+      </div>
+      <div class="modal-body py-0">
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Type:</h5>
+          <h2><%= wine.type %></h2>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Winery:</h5>
+          <h3><%= wine.winery %></h3>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Price Per Glass:</h5>
+          <h4><%= wine.pricePerGlass %></h4>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>Price Per Bottle:</h5>
+          <h4><%= wine.pricePerBottle %></h4>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>ABV:</h5>
+          <h4><%= wine.abv %></h4>
+        </div>
+        <div class="container">
+          <hr class="my-4" />
+          <h5>AVA:</h5>
+          <h4><%= wine.ava %></h4>
+        </div>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+        <!-- <form method="POST" action="/games/<%= wine.id %>/?_method=DELETE">
+            <input type="submit" value="Delete Game" />
+          </form> -->
+        <!-- <a href="/games/edit/<%= wine.id %>">Edit</a> -->
+        <a href="/wines">All Wines</a>
+      </div>
+    </div>
+  </div>
+</div>
