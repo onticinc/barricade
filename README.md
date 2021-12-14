@@ -4,11 +4,6 @@ Control Game information and customer high scores for Barricade in Pocatello Ida
 
 Also manages Beer and Wine inventory and Upcoming Events.
 
-# External API
-
-https://api.chucknorris.io/
-Random Chuck Norris Jokes
-
 ## Express authentication template using Passport + Flash messages + custom middleware
 
 - Sequelize user model / migration
@@ -221,12 +216,17 @@ For login auth/encryption:
 - "passport": "^0.4.1"
 - "passport-local": "^1.0.0"
 
-### Resources used
+# External API
+
+https://api.chucknorris.io/
+Random Chuck Norris Jokes
+
+# Resorces Used
+https://www.npmjs.com/package/multer
 
 
 
 # Code Snippets
-
 ## CRUD for Barricade
 
 ### Create / Post Route
@@ -322,9 +322,6 @@ router.delete("/:id", (req, res) => {
 });
 ```
 
-````
-
-
 ### High Score Route
 
 ```js
@@ -356,93 +353,5 @@ router.post("/high-score", isLoggedIn, function (req, res) {
       console.log("this is an error", error);
       res.redirect("/games/high-score/new");
     });
-});
-````
-
-### Update
-
-```js
-
-```
-
-### Email Integration
-
-```js
-let transporter = mailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD,
-      clientId: process.env.OAUTH_CLIENTID,
-      clientSecret: process.env.OAUTH_CLIENT_SECRET,
-      refreshToken: process.env.OAUTH_REFRESH_TOKEN
-    }
-  });
-router.post('/favorite/:id', isLoggedIn, async (req,res)=>{
-    const thisGallery = await db.gallery.findOne({
-        where: {userId: req.user.id}
-    })
-    const thisWork = await db.work.findOne({
-        where: {id: req.params.id},
-        include: [db.user]
-    })
-    thisGallery.addWork(thisWork)
-    let emailRecipient = thisWork.user.dataValues.email
-    let mailOptions = {
-        from: 'YOUR-EMAIL@YOUR-DOMAIN.COM',
-        to: emailRecipient,
-        subject: 'GalleryLink - Your work was added to favorites!',
-        text: `Congrats! ${thisGallery.name} added your piece, ${thisWork.title}, to their collection of favorites.`
-    }
-    transporter.sendMail(mailOptions, function(err, data) {
-        if (err) {
-          console.log("Error " + err);
-        } else {
-          console.log("Email sent successfully");
-        }
-      });
-```
-
-### Search
-
-```js
-router.get("/results", isLoggedIn, async (req, res) => {
-  let results = [];
-  let target = req.query.target;
-  if (req.query.search == "gallery") {
-    results = await db.gallery.findAll({
-      where: {
-        [target]: {
-          [Op.iLike]: `%${req.query.query}%`,
-        },
-      },
-    });
-  } else if (req.query.search == "artist") {
-    results = await db.artist.findAll({
-      where: {
-        [target]: {
-          [Op.iLike]: `%${req.query.query}%`,
-        },
-      },
-    });
-  } else {
-    if (target == "yearCreated") {
-      results = await db.work.findAll({
-        where: {
-          yearCreated: req.query.query,
-        },
-      });
-    } else {
-      results = await db.work.findAll({
-        where: {
-          [target]: {
-            [Op.iLike]: `%${req.query.query}%`,
-          },
-        },
-      });
-    }
-  }
-  res.render("search/results", { searchResults: results });
 });
 ```
