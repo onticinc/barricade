@@ -7,43 +7,48 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-5 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h2 class="fw-bold mb-0" style="text-align: center">Please Log In.</h2>
+        <img src="/images/barricade_pacman.png" style="width: 100%" />
       </div>
 
       <div class="modal-body p-5 pt-0">
         <form action="/auth/signup" method="POST">
           <div class="container">
+            <h2>Please Log In.</h2>
             <div class="row">
-              <label for="firstName">First Name:</label>
+              <label for="firstName" style="margin-top: 15px"
+                >First Name:</label
+              >
             </div>
             <input id="new-first-name" type="text" name="firstName" required />
           </div>
           <div class="container m-t-15">
             <div class="row">
-              <label for="lastName">Last Name:</label>
+              <label for="lastName" style="margin-top: 15px">Last Name:</label>
             </div>
             <input id="new-last-name" type="text" name="lastName" required />
           </div>
           <div class="container">
             <div class="row">
-              <label for="initials">Initials:</label>
+              <label for="initials" style="margin-top: 15px">Initials:</label>
             </div>
             <input id="new-initials" type="text" name="initials" required />
           </div>
           <div class="container">
             <div class="row">
-              <label for="new-email">Email</label>
+              <label for="new-email" style="margin-top: 15px">Email</label>
             </div>
             <input id="new-email" type="email" name="email" required />
           </div>
           <div class="container">
             <div class="row">
-              <label for="new-password">Password</label>
+              <label for="new-password" style="margin-top: 15px"
+                >Password</label
+              >
             </div>
             <input id="new-password" type="password" name="password" required />
           </div>
           <div class="container">
-            <input type="submit" value="Sign up" />
+            <input type="submit" style="margin-top: 15px" value="Sign up" />
           </div>
         </form>
       </div>
