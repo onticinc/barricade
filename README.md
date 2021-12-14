@@ -80,6 +80,23 @@ Random Chuck Norris Jokes
 | createdAt      | Date      | Auto-generated                     |
 | updatedAt      | Date      | Auto-generated                     |
 
+### Beer Model
+
+| Column Name     | Data Type | Notes                              |
+| --------------- | --------- | ---------------------------------- |
+| id              | Integer   | Serial Primary Key, Auto-generated |
+| name            | String    | Must be provided                   |
+| type            | String    |                                    |
+| brewery         | String    |                                    |
+| pricePerGlass   | String    |                                    |
+| pricePerGrowler | String    |                                    |
+| abv             | Integer   |                                    |
+| ibu             | Integer   |                                    |
+| notes           | Text      |                                    |
+| status          | Text      |                                    |
+| createdAt       | Date      | Auto-generated                     |
+| updatedAt       | Date      | Auto-generated                     |
+
 ### Default Routes
 
 | Method | Path         | Location  | Purpose              |
@@ -96,16 +113,45 @@ File Structure
 
 ├── config
 │ └── config.json
+│ └── ppConfig.json
 ├── controllers
 │ └── auth.js
+│ └── beer.js
+│ └── chuckNorris.js
+│ └── event.js
+│ └── game.js
+│ └── highScore.js
+│ └── merch.js
+│ └── users.js
+│ └── wine.js
+├── middleware
+│ └── isLoggedIn.js
+├── migrations
+│ └── beer.js
+│ └── merch.js
+│ └── wine.js
+│ └── user.js
+│ └── game.js
+│ └── event.js
+│ └── high-score.js
 ├── models
+│ └── beer.js
+│ └── event.js
+│ └── game.js
+│ └── highscore.js
 │ └── index.js
+│ └── merch.js
+│ └── user.js
+│ └── wine.js
 ├── node_modules
 │ └── ...
 ├── public
 │ └── assets
 │ └── css
 │ └── style.css
+| └── └── app.css
+├── images
+│ └── ...
 ├── test
 │ └── auth.test.js
 │ └── index.test.js
@@ -113,15 +159,47 @@ File Structure
 │ └── user.test.js
 ├── views
 │ └── auth
-│ └── login.ejs
-│ └── signup.ejs
-│ └── index.ejs
-│ └── layout.ejs
-│ └── profile.ejs
+| └── └── login.ejs
+| └── └── signup.ejs
+│ └── beers
+│ └── └── edit.ejs
+│ └── └── index.ejs
+│ └── └── new.ejs
+│ └── └── show.ejs
+│ └── events
+│ └── └── edit.ejs
+│ └── └── index.ejs
+│ └── └── new.ejs
+│ └── └── show.ejs
+│ └── games
+│ └── └── edit.ejs
+│ └── └── index.ejs
+│ └── └── new.ejs
+│ └── └── show.ejs
+│ └── highScore
+│ └── └── highScore.ejs
+│ └── └── new.ejs
+│ └── partials
+│ └── └── alerts.ejs
+│ └── └── bootstrap.ejs
+│ └── └── footer.ejs
+│ └── └── toolbar.ejs
+│ └── users
+│ └── └── edit.ejs
+│ └── └── index.ejs
+│ └── └── new.ejs
+│ └── └── show.ejs
+│ └── wines
+│ └── └── edit.ejs
+│ └── └── index.ejs
+│ └── └── new.ejs
+│ └── └── show.ejs
 ├── .gitignore
+├── database.js
 ├── package-lock.json
 ├── package.json
 ├── README.md
+├── scratchpad.js
 ├── server.js
 
 ````
