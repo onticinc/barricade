@@ -8,8 +8,6 @@ const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const methodOverride = require('method-override');
 
-//const multer = require('multer')
-
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
 
@@ -20,7 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // STATIC FILES
 app.use(express.static(__dirname + '/public'));
-// app.use('/css', express.static(__dirname + 'public/css/app'))
 
 
 // SET TEMPLATING ENGINE
@@ -65,7 +62,7 @@ app.use('/events', require('./controllers/event'));
 app.use('/users', require('./controllers/users'));
 app.use('/games', require('./controllers/game'));
 app.use('/merch', require('./controllers/merch'));
-app.use('/highscore', require('./controllers/highscore'));
+app.use('/highscore', require('./controllers/highScore'));
 app.use('/chuck', require('./controllers/chuckNorris'));
 
 const PORT = process.env.PORT || 3000;
