@@ -104,7 +104,7 @@ Also manages Beer and Wine inventory and Upcoming Events.
 | GET    | /auth/logout | auth.js   | Removes session info |
 | GET    | /profile     | server.js | Regular User Profile |
 
-File Structure
+# File Structure
 
 ├── config
 │ └── config.json
@@ -197,9 +197,7 @@ File Structure
 ├── scratchpad.js
 ├── server.js
 
-````
-
-For general app setup:
+# For general app setup:
 
 - "dotenv": "^8.6.0"
 - "ejs": "^3.1.6"
@@ -208,8 +206,7 @@ For general app setup:
 - "express-session": "^1.17.1"
 - "method-override": "^3.0.0"
 
-
-For login auth/encryption:
+# For login auth/encryption:
 
 - "bcrypt": "^5.0.1"
 - "connect-flash": "^0.1.1"
@@ -222,11 +219,11 @@ https://api.chucknorris.io/
 Random Chuck Norris Jokes
 
 # Resorces Used
+
 https://www.npmjs.com/package/multer
 
-
-
 # Code Snippets
+
 ## CRUD for Barricade
 
 ### Create / Post Route
@@ -254,7 +251,7 @@ router.post("/", (req, res) => {
       res.render("404", { message: "Game was not added please try again..." });
     });
 });
-````
+```
 
 ### Read
 
