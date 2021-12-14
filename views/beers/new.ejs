@@ -1,53 +1,95 @@
-<div class="container">
-  <form method="POST" action="/beers">
-    <label for="name">Beer Name:</label>
-    <input id="beerName" type="text" name="name" />
+<div
+  class="modal modal-signin position-static d-block bg-secondary py-5"
+  tabindex="-1"
+  role="dialog"
+  id="modalSignin"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <img src="/images/barricade_pacman.png" style="width: 100%" />
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <h1>Add New Beer</h1>
+        <form method="POST" action="/beers">
+          <div class="container">
+            <div class="row">
+              <label for="name" style="margin-top: 15px">Beer Name:</label>
+            </div>
+            <input id="beerName" type="text" name="name" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="type" style="margin-top: 15px"
+                >Type of beer (Lager, Hefeweisen, Stout...):</label
+              >
+            </div>
+            <input id="typeOfBeer" type="text" name="type" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="brewery" style="margin-top: 15px"
+                >Brewery Name:</label
+              >
+            </div>
+            <input id="brewery" type="text" name="brewery" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerGlass" style="margin-top: 15px"
+                >Price Per Glass:</label
+              >
+            </div>
+            <input id="pricePerGlass" type="number" name="pricePerGlass" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="pricePerGrowler" style="margin-top: 15px"
+                >Price Per Growler:</label
+              >
+            </div>
+            <input id="pricePerGrowler" type="number" name="pricePerGrowler" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="costPerKeg" style="margin-top: 15px"
+                >Cost Per Keg:</label
+              >
+            </div>
+            <input id="costPerKeg" type="number" name="costPerKeg" />
+          </div>
 
-    <label for="type">Type of beer (Lager, Hefeweisen, Stout...):</label>
-    <input id="typeOfBeer" type="text" name="type" />
-
-    <label for="brewery">Brewery Name:</label>
-    <input id="brewery" type="text" name="brewery" />
-
-    <label for="pricePerGlass">Price Per Glass:</label>
-    <input
-      id="pricePerGlass"
-      min="0.01"
-      step="0.01"
-      type="number"
-      name="pricePerGlass"
-    />
-
-    <label for="pricePerGrowler">Price Per Growler:</label>
-    <input
-      id="pricePerGrowler"
-      min="0.01"
-      step="0.01"
-      type="number"
-      name="pricePerGrowler"
-    />
-
-    <label for="costPerKeg">Cost Per Keg:</label>
-    <input
-      id="costPerKeg"
-      min="0.01"
-      step="0.01"
-      type="number"
-      name="costPerKeg"
-    />
-
-    <label for="beerAbv">Beer ABV:</label>
-    <input id="beerAbv" type="number" name="abv" />
-
-    <label for="beerIbu">Beer IBU:</label>
-    <input id="beerIbu" type="number" name="ibu" />
-
-    <label for="status">Status:</label>
-    <input id="beerStatus" type="text" name="status" />
-
-    <label for="beerNotes">Notes:</label>
-    <input id="beerNotes" type="text" name="notes" />
-
-    <input type="submit" />
-  </form>
+          <div class="container">
+            <div class="row">
+              <label for="beerAbv" style="margin-top: 15px">Beer ABV:</label>
+            </div>
+            <input id="beerAbv" type="number" name="abv" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="beerIbu" style="margin-top: 15px">Beer IBU:</label>
+            </div>
+            <input id="beerIbu" type="number" name="ibu" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="status" style="margin-top: 15px">Status:</label>
+            </div>
+            <input id="beerStatus" type="text" name="status" />
+          </div>
+          <div class="container">
+            <div class="row">
+              <label for="beerNotes" style="margin-top: 15px">Notes:</label>
+            </div>
+            <input id="beerNotes" type="text" name="notes" />
+          </div>
+          <div class="container">
+            <input type="submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
